@@ -1,0 +1,16 @@
+{
+  "name": "hw-skills",
+  "owner": { "name": "hw" },
+  "plugins": [
+    {
+      "name": "workstyle",
+      "source": "./plugins/workstyle",
+      "description": "How to work with an AI agent: pace, answer-concise."
+    },
+    {
+      "name": "spec",
+      "source": "./plugins/spec",
+      "description": "Turn a rough AI product brief into a spec: pick sections and levels, render each as ASCII, list the gaps."
+    }
+  ]
+}
