@@ -1,6 +1,6 @@
 ---
 name: save-session
-description: Record the current Claude Code session in ~/work/sessions.md so the user can find and resume it later: date, working folder, local session id, web link, one-line brief, files produced. Use when the user invokes /save-session, says "save this session", "remember this session", "log this session", "where do I come back to", or at the end of a session that produced files they will reopen.
+description: 'Record the current Claude Code session in ~/work/sessions.md so the user can find and resume it later: date, working folder, local session id, web link, one-line brief, files produced. Use when the user invokes /save-session, says "save this session", "remember this session", "log this session", "where do I come back to", or at the end of a session that produced files they will reopen.'
 argument-hint: "[brief]"
 ---
 
