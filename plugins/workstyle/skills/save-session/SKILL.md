@@ -23,7 +23,7 @@ A session is the user working with an agent inside one folder. After it closes t
 5. **Produced.** Files created or materially changed in this session, repo-relative, as backtick names. Up to eight; if more, name the folder.
 6. **Write.** Read `~/work/sessions.md`. If a row with this session id exists, replace it. Otherwise append a row to the table:
    ```
-   | <YYYY-MM-DD> | <machine> | `<folder>` | `<id>` ([web](<url>)) | <brief> | <produced> |
+   | <YYYY-MM-DD> | `<folder>` | `<id>` ([web](<url>)) | <brief> | <produced> | <machine> |
    ```
    If the file does not exist, create it with the header below, then add the row.
 7. **Confirm** in one line: the id and the resume command `claude --resume <id>` from the folder. Nothing else.
@@ -35,7 +35,7 @@ A session is the user working with an agent inside one folder. After it closes t
 
 One row per Claude Code session worth returning to. Resume from the folder with `claude --resume <id>`, or open the claude.ai link. Add a row at the end of any session that produced files you will reopen.
 
-| Date | Machine | Folder | Session id | Brief | Produced |
+| Date | Folder | Session id | Brief | Produced | Machine |
 |---|---|---|---|---|---|
 ```
 
