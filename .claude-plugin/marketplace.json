@@ -5,7 +5,7 @@
     {
       "name": "workstyle",
       "source": "./plugins/workstyle",
-      "description": "How to work with an AI agent: pace, answer-concise."
+      "description": "How to work with an AI agent: pace, answer-concise, save-session."
     },
     {
       "name": "spec",
