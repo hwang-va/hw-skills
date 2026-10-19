@@ -24,9 +24,9 @@ A session is the user working with an agent inside one folder. After it closes t
 6. **Produced.** Files created or materially changed in this session, repo-relative, as backtick names. Up to eight; if more, name the folder.
 7. **Write.** Read `~/work/sessions.md`. If a row with this session id exists, replace it. Otherwise append a row to the table:
    ```
-   | <YYYY-MM-DD> | <name> | `<folder>` | `<id>` ([web](<url>)) | `cd <folder>; claude --resume <id>` | <brief> | <produced> | <machine> |
+   | <YYYY-MM-DD> | <name> | `<folder>` | `<id>` ([web](<url>)) | `cd <folder>; ccd --resume <id>` | <brief> | <produced> | <machine> |
    ```
-   If the file does not exist, create it with the header below, then add the row. If the header lacks the Name or Resume column, switch to the header below and fill both cells in every existing row first (Name from that row's transcript, else `null`).
+   `ccd` is a shell function for `claude` with your own default arguments (for example `function ccd { claude --dangerously-skip-permissions @args }` in the PowerShell profile). If the file does not exist, create it with the header below, then add the row. If the header lacks the Name or Resume column, switch to the header below and fill both cells in every existing row first (Name from that row's transcript, else `null`).
 8. **Confirm** in one line: the name and the Resume cell. Nothing else.
 
 ## File header (only when creating the file)
