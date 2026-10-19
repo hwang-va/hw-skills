@@ -17,31 +17,32 @@ A session is the user working with an agent inside one folder. After it closes t
    Get-ChildItem "$env:USERPROFILE\.claude\projects\<mangled-cwd>\*.jsonl" | Sort-Object LastWriteTime -Descending | Select-Object -First 1 -ExpandProperty BaseName
    ```
    `<mangled-cwd>` is the working directory with `:` and `\` replaced by `-` (for example `C--Users-alex-projects-my-app`). The scratchpad path in the environment block also contains this id.
-2. **Web link.** Use the `https://claude.ai/code/session_...` URL from the system attribution block when present. Omit if absent.
-3. **Machine and folder.** Machine is a short name from the platform in the environment block: `Win` on Windows, `Mac` on macOS, `Linux` on Linux. Edit these names to your own (for example `WorkWin`, `HomeMac`) so rows from several computers stay apart. Folder is the primary working directory, written with `~` for the home folder.
-4. **Brief.** From the argument if given, otherwise one sentence from the conversation: what was learned, built or decided. No more than 25 words.
-5. **Produced.** Files created or materially changed in this session, repo-relative, as backtick names. Up to eight; if more, name the folder.
-6. **Write.** Read `~/work/sessions.md`. If a row with this session id exists, replace it. Otherwise append a row to the table:
+2. **Name.** The title set with `/rename`: the `customTitle` of the last `"type":"custom-title"` line in the same transcript file. Write `null` if there is none.
+3. **Web link.** Use the `https://claude.ai/code/session_...` URL from the system attribution block when present. Omit if absent.
+4. **Machine and folder.** Machine is a short name from the platform in the environment block: `Win` on Windows, `Mac` on macOS, `Linux` on Linux. Edit these names to your own (for example `WorkWin`, `HomeMac`) so rows from several computers stay apart. Folder is the primary working directory, written with `~` for the home folder.
+5. **Brief.** From the argument if given, otherwise one sentence from the conversation: what was learned, built or decided. No more than 25 words.
+6. **Produced.** Files created or materially changed in this session, repo-relative, as backtick names. Up to eight; if more, name the folder.
+7. **Write.** Read `~/work/sessions.md`. If a row with this session id exists, replace it. Otherwise append a row to the table:
    ```
-   | <YYYY-MM-DD> | `<folder>` | `<id>` ([web](<url>)) | <brief> | <produced> | <machine> |
+   | <YYYY-MM-DD> | <name> | `<folder>` | `<id>` ([web](<url>)) | `cd <folder>; claude --resume <id>` | <brief> | <produced> | <machine> |
    ```
-   If the file does not exist, create it with the header below, then add the row.
-7. **Confirm** in one line: the id and the resume command `claude --resume <id>` from the folder. Nothing else.
+   If the file does not exist, create it with the header below, then add the row. If the header lacks the Name or Resume column, switch to the header below and fill both cells in every existing row first (Name from that row's transcript, else `null`).
+8. **Confirm** in one line: the name and the Resume cell. Nothing else.
 
 ## File header (only when creating the file)
 
 ```
 # Sessions
 
-One row per Claude Code session worth returning to. Resume from the folder with `claude --resume <id>`, or open the claude.ai link. Add a row at the end of any session that produced files you will reopen.
+One row per Claude Code session worth returning to. Paste the Resume cell into a terminal, or open the claude.ai link. Add a row at the end of any session that produced files you will reopen.
 
-| Date | Folder | Session id | Brief | Produced | Machine |
-|---|---|---|---|---|---|
+| Date | Name | Folder | Session id | Resume | Brief | Produced | Machine |
+|---|---|---|---|---|---|---|---|
 ```
 
 ## Rules
 
-- Never rewrite other rows. Append or replace the one row for this session id.
+- Never rewrite other rows, except the one-time column fill in step 7. Append or replace the one row for this session id.
 - Date is the session's start date if known from the transcript, otherwise today.
 - Plain prose in the brief, no markdown except the backticks around file names.
 - Do not open the file after writing unless asked.
