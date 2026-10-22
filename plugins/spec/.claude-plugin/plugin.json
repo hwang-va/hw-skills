@@ -1,6 +1,6 @@
 {
   "name": "spec",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Turn a rough AI product brief into a spec: pick sections and levels, render each as ASCII, list the gaps.",
   "author": {
     "name": "hw"
