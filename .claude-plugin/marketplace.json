@@ -1,6 +1,8 @@
 {
   "name": "hw-skills",
-  "owner": { "name": "hw" },
+  "owner": {
+    "name": "hw"
+  },
   "plugins": [
     {
       "name": "workstyle",
@@ -11,6 +13,11 @@
       "name": "spec",
       "source": "./plugins/spec",
       "description": "Turn a rough AI product brief into a spec: pick sections and levels, render each as ASCII, list the gaps."
+    },
+    {
+      "name": "domain",
+      "source": "./plugins/domain",
+      "description": "Turn a domain's scattered sources into one folder of sorted facts: charter, roles, entities, data, rules, knowledge, process, tools, unknowns, reviews."
     }
   ]
 }
