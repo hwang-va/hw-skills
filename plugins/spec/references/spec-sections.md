@@ -600,7 +600,7 @@ empty: "no holdings for that date"        State text L2: returned text, host sho
 
 ### Level 1: Scope and Behavior
 
-- Agent inventory: the AI workers a product contains, as a system is a set of containers in C4. One row per agent. Runs before Autonomy, which tiers each agent's actions. Anchors: Anthropic "Building effective agents" (2024) for what counts as an agent; CSA "Agentic Universe" (April 2026) for the row attributes: autonomy, persistence, tool scope, communication pattern, trigger; Azure Architecture Center "AI Agent Orchestration Patterns" (2026-09) for Level 2 handoff patterns: sequential, concurrent, group chat, handoff, magentic. Confirmed with Hai 2026-10-21.
+- Agent inventory: the AI workers a product contains, as a system is a set of containers in C4. One row per agent. Runs before Autonomy, which tiers each agent's actions. Anchors: Anthropic "Building effective agents" (2024) for what counts as an agent; CSA "Agentic Universe" (April 2026) for the row attributes: autonomy, persistence, tool scope, communication pattern, trigger; Azure Architecture Center "AI Agent Orchestration Patterns" (2026-09) for Level 2 handoff patterns: sequential, concurrent, group chat, handoff, magentic. Confirmed with the owner 2026-10-21.
 - **A. Agents.** Every AI worker named, with its one-line job: the outcome it owns, not the model it uses.
 - **B. Trigger.** What wakes each agent, one kind from a fixed vocabulary: user turn, after run (reacts to another agent's or a user's result), background (continuous, watches data or behavior), scheduled (clock), review (periodic reflection over a window).
 - **C. Surface.** Where the agent shows itself: a Product Surface screen or surface type, or hidden; and who receives its output.

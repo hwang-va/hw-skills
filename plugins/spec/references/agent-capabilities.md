@@ -2,7 +2,7 @@
 
 **Purpose:** The dated list of platform capabilities an agent in a spec may depend on. Agents Level 2 element E cites a capability name from the first column, never a provider, so a spec stays true when providers change. The Providers column is a snapshot for the engineer who maps the spec to a stack; refresh it monthly, or when a Level 2 run needs a capability that is not here.
 
-**Refreshed:** 2026-10-21 by Hai Wang and Claude, from web search on that date. Providers are Reported from secondary coverage unless marked Verified against a vendor page; dates are as the sources gave them. Sources at the end.
+**Refreshed:** 2026-10-21 by the owner and Claude, from web search on that date. Providers are Reported from secondary coverage unless marked Verified against a vendor page; dates are as the sources gave them. Sources at the end.
 
 | Capability | What the agent can do | Providers (snapshot, 2026-10) | Spec notes |
 |---|---|---|---|
