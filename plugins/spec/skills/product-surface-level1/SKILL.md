@@ -4,8 +4,8 @@ description: "Trigger: /spec:product-surface-level1 or screen inventory request.
 ---
 # Product-Surface-Level1
 Goal: Render spec as Product Surface Level 1, Screen Inventory and Map (Garrett visual vocabulary for information architecture), ASCII, inline.
-Target: Descriptive spec user points at; infer from full chat context. C4 Level 1 and Activity Level 1 output, if present, are additional input.
-Scope: Four element types only. Screens: every screen or pane named, one-line purpose stating the job the user does there. Components: what sits on each screen, named from the vocabulary: AI component, table, list, form, chart, detail panel, control. Entry and Exit: how the user arrives at each screen and where they go next, verb on the arrow. Surface Type: where the screen lives: web app, chat pane, email, message, or document.
+Target: Descriptive spec user points at; infer from full chat context. C4 Level 1 and Activity Level 1 output, if present, are additional input; Knowledge Level 1 output, if present, supplies the search and library screens its person-path column names.
+Scope: Four element types only. Screens: every screen, pane, or tool surface named, one-line purpose stating the job the user does there; a tool surface is the tool set an external AI host (Claude, ChatGPT over MCP) renders on the product's behalf. Components: what sits on each screen, named from the vocabulary: AI component, table, list, form, chart, detail panel, control, tool. Entry and Exit: how the user arrives at each screen and where they go next, verb on the arrow. Surface Type: where the screen lives: web app, mobile app, CLI, chat pane, email, message, document, or host chat; a CLI command is a screen whose arguments are the form and whose output is the table or detail panel.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## Product Surface`; if absent, standard box-drawing glyphs.
 Output: Element list, divider, diagram, divider, gaps.
 
@@ -18,5 +18,5 @@ Output: Element list, divider, diagram, divider, gaps.
 Requirements:
 1. Every screen a role in the spec can reach. No screen the spec never implies. No orphan screen: every screen has an entry.
 2. Components named, never "various controls". Vocabulary words only.
-3. A delivered surface counts: an email, message, or document is a screen carrying purpose and components.
+3. A delivered surface counts: an email, message, document, or the tool set in a host chat is a screen carrying purpose and components, because the user does a job there even though the product draws nothing.
 4. Fits one screen: ≤ 10 screens. More = split by role.

@@ -18,7 +18,7 @@ Output: Goal and reader line, divider, run plan, divider, gaps.
 5. Save: Same plan block to `<folder>\plan.md`; existing `plan.md` = write `plan-<date>.md` beside it.
 
 Requirements:
-1. 17 rows, one per Catalog section; Glossary row covers Level 0.
+1. 22 rows, one per Catalog section; Glossary row covers Level 0.
 2. Every row: depth, reason, order; lines ≤ 110 characters.
 3. Order respects every chosen skill's `Target:` inputs; no skill before a sibling it reads.
 4. Creates no IDs.

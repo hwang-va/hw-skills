@@ -18,7 +18,7 @@ Output: File written, divider, status table, divider, gaps.
 
 Requirements:
 1. Template part of each output byte-identical in `spec.md`.
-2. 17 status lines, one per Catalog section; lines ≤ 110 characters.
+2. 22 status lines, one per Catalog section; lines ≤ 110 characters.
 3. Creates no IDs; changes none.
 4. Never edits an `output-*.md`.
 5. Skipped or missing section = status line only, no placeholder body.
