@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FRAMEWORK Map</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --panel: #ffffff; --ink: #1b1f24; --muted: #5c6670; --line: #d9dee5;
+    --loop: #2f6fed; --loop-soft: #e6eefc; --plug: #7a3fd1; --plug-soft: #f0e9fb;
+    --prod: #0f8a6a; --prod-soft: #e3f5ee; --run: #c2651a; --run-soft: #fbeedd;
+    --code-bg: #f0f2f5; --shadow: 0 1px 2px rgba(0,0,0,.06), 0 6px 18px rgba(0,0,0,.05);
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --bg: #0f1216; --panel: #171b21; --ink: #e8ebef; --muted: #9aa4ae; --line: #2a313a;
+    --loop: #6d9bff; --loop-soft: #172238; --plug: #b48cff; --plug-soft: #241a36;
+    --prod: #3ccf9e; --prod-soft: #10281f; --run: #ff9f55; --run-soft: #30200f;
+    --code-bg: #0b0e12; --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
+  } }
+  :root[data-theme="dark"] {
+    --bg: #0f1216; --panel: #171b21; --ink: #e8ebef; --muted: #9aa4ae; --line: #2a313a;
+    --loop: #6d9bff; --loop-soft: #172238; --plug: #b48cff; --plug-soft: #241a36;
+    --prod: #3ccf9e; --prod-soft: #10281f; --run: #ff9f55; --run-soft: #30200f;
+    --code-bg: #0b0e12; --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+  a { color: var(--loop); }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 24px 16px 80px; display: grid; grid-template-columns: 1fr 360px; gap: 20px; }
+  @media (max-width: 960px) { .wrap { grid-template-columns: 1fr; } }
+  header { grid-column: 1 / -1; }
+  h1 { margin: 0 0 4px; font-size: 26px; letter-spacing: -.01em; }
+  .tag { color: var(--muted); margin: 0; }
+  .tag b { color: var(--ink); }
+  section { margin-top: 26px; }
+  h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin: 0 0 10px; display: flex; align-items: center; gap: 8px; }
+  h2 .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .grid { display: grid; gap: 10px; }
+  .g5 { grid-template-columns: repeat(5, 1fr); }
+  .g4 { grid-template-columns: repeat(4, 1fr); }
+  .g3 { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 760px) { .g5, .g4, .g3 { grid-template-columns: repeat(2, 1fr); } }
+  .node { text-align: left; background: var(--panel); border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 14px; cursor: pointer; color: var(--ink); font: inherit; box-shadow: var(--shadow); transition: transform .08s, border-color .12s; }
+  .node:hover { transform: translateY(-1px); }
+  .node.active { border-color: var(--c); background: var(--soft); }
+  .node .t { font-weight: 650; display: flex; align-items: center; gap: 8px; }
+  .node .t::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c); flex: none; }
+  .node .s { color: var(--muted); font-size: 13px; margin-top: 3px; }
+  .prod { --c: var(--prod); --soft: var(--prod-soft); }
+  .plug { --c: var(--plug); --soft: var(--plug-soft); }
+  .loopc { --c: var(--loop); --soft: var(--loop-soft); }
+  .run { --c: var(--run); --soft: var(--run-soft); }
+
+  /* loop block: chips around an svg */
+  .loopgrid { display: grid; grid-template-columns: 1fr minmax(320px, 520px) 1fr; gap: 10px; align-items: center; }
+  @media (max-width: 960px) { .loopgrid { grid-template-columns: 1fr; } .loopgrid .col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; } }
+  .col { display: grid; gap: 10px; }
+  .svgbox { background: var(--panel); border: 1.5px solid var(--line); border-radius: 14px; padding: 10px; box-shadow: var(--shadow); }
+  svg { width: 100%; height: auto; display: block; }
+  svg text { font: 13px system-ui, sans-serif; fill: var(--ink); }
+  svg .lbl { font-size: 11px; fill: var(--muted); }
+  svg .box { fill: var(--panel); stroke: var(--line); stroke-width: 1.5; }
+  svg .hot { stroke: var(--loop); stroke-width: 2; fill: var(--loop-soft); }
+  svg .arrow { stroke: var(--loop); stroke-width: 2; fill: none; marker-end: url(#ah); }
+  svg .dash { stroke-dasharray: 5 4; }
+  svg .click { cursor: pointer; }
+  svg .click:hover .box { stroke: var(--loop); }
+
+  /* detail drawer */
+  aside { position: sticky; top: 16px; align-self: start; background: var(--panel); border: 1.5px solid var(--line); border-radius: 14px; padding: 16px; box-shadow: var(--shadow); max-height: calc(100vh - 32px); overflow: auto; }
+  @media (max-width: 960px) { aside { position: fixed; left: 0; right: 0; bottom: 0; top: auto; max-height: 60vh; border-radius: 14px 14px 0 0; transform: translateY(100%); transition: transform .2s; z-index: 5; } aside.open { transform: none; } }
+  aside h3 { margin: 0 0 4px; font-size: 18px; display: flex; align-items: center; gap: 8px; }
+  aside h3::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--c, var(--muted)); }
+  aside .ess { margin: 0 0 10px; }
+  aside ul { margin: 0 0 10px; padding-left: 18px; }
+  aside li { margin: 3px 0; }
+  aside pre { background: var(--code-bg); border-radius: 8px; padding: 10px; overflow: auto; font-size: 12.5px; margin: 0 0 10px; }
+  aside .links a { display: block; font-size: 13px; margin: 2px 0; }
+  aside .hint { color: var(--muted); }
+  .close { float: right; background: none; border: 1px solid var(--line); border-radius: 8px; color: var(--muted); padding: 2px 8px; cursor: pointer; display: none; }
+  @media (max-width: 960px) { .close { display: inline-block; } }
+  table.map { width: 100%; border-collapse: collapse; background: var(--panel); border: 1.5px solid var(--line); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); font-size: 14px; }
+  table.map th, table.map td { text-align: left; padding: 8px 12px; border-top: 1px solid var(--line); vertical-align: top; }
+  table.map th { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); border-top: 0; }
+  table.map td:first-child { white-space: nowrap; }
+  table.map .lk { background: none; border: 0; padding: 0; font: inherit; color: var(--loop); cursor: pointer; text-decoration: underline dotted; }
+  table.map code { font-size: 12.5px; background: var(--code-bg); padding: 1px 4px; border-radius: 4px; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--muted); margin-top: 8px; }
+  .legend span::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; background: var(--c); }
+  footer { grid-column: 1 / -1; color: var(--muted); font-size: 12px; margin-top: 20px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>FRAMEWORK, the map</h1>
+    <p class="tag"><b>One idea:</b> ONE SENTENCE DERIVED FROM THE OVERVIEW: an agent is X in a loop; Y wraps the loop. Click any box; the panel shows its essence and links to the real docs.</p>
+    <div class="legend"><span class="prod">product</span><span class="loopc">the loop</span><span class="plug">plugs into the loop</span><span class="run">run and ship</span></div>
+  </header>
+
+  <main>
+    <section>
+      <h2><span class="dot" style="background:var(--prod)"></span>Packages and products</h2>
+      <div class="grid g5" id="products"></div>
+    </section>
+
+    <section>
+      <h2><span class="dot" style="background:var(--loop)"></span>The loop, and what plugs into it</h2>
+      <div class="loopgrid">
+        <div class="col" id="plugL"></div>
+        <div class="svgbox">
+          <svg viewBox="0 0 520 420" role="img" aria-label="Agent loop">
+            <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--loop)"/></marker></defs>
+            <!-- user: edit only the <text> labels below; keep geometry and data-id -->
+            <g class="click" data-id="surface"><rect class="box" x="20" y="20" width="120" height="44" rx="10"/><text x="80" y="42" text-anchor="middle">your surface</text><text class="lbl" x="80" y="56" text-anchor="middle">UI, API, bot</text></g>
+            <path class="arrow" d="M140 42 H210"/>
+            <text class="lbl" x="175" y="34" text-anchor="middle">RUN CALL</text>
+            <!-- agent box -->
+            <rect class="box" x="210" y="10" width="290" height="330" rx="16"/>
+            <text x="355" y="34" text-anchor="middle" font-weight="650">Agent</text>
+            <g class="click" data-id="agent"><rect class="box" x="230" y="48" width="250" height="38" rx="8"/><text x="355" y="72" text-anchor="middle">INSTRUCTIONS + HISTORY NAME</text></g>
+            <path class="arrow" d="M355 86 V118"/>
+            <g class="click" data-id="models"><rect class="box hot" x="265" y="118" width="180" height="48" rx="10"/><text x="355" y="138" text-anchor="middle" font-weight="650">MODEL / CLIENT NAME</text><text class="lbl" x="355" y="155" text-anchor="middle">the model picks the next step</text></g>
+            <!-- decision -->
+            <g class="click" data-id="loop"><path class="box" d="M355 190 L410 222 L355 254 L300 222 z"/><text x="355" y="219" text-anchor="middle" font-size="12">STOP REASON?</text><text class="lbl" x="355" y="234" text-anchor="middle">text | tool call</text></g>
+            <path class="arrow" d="M355 166 V186"/>
+            <!-- tools -->
+            <g class="click" data-id="tools"><rect class="box hot" x="265" y="278" width="180" height="48" rx="10"/><text x="355" y="298" text-anchor="middle" font-weight="650">Tools</text><text class="lbl" x="355" y="315" text-anchor="middle">TOOL KINDS</text></g>
+            <path class="arrow" d="M355 254 V274"/>
+            <text class="lbl" x="372" y="268">tool call</text>
+            <!-- loop back -->
+            <path class="arrow" d="M445 302 H470 V67 H484"/>
+            <text class="lbl" x="490" y="200" writing-mode="tb">result appended, model called again</text>
+            <!-- exit -->
+            <path class="arrow" d="M300 222 H250 V380 H140"/>
+            <text class="lbl" x="262" y="216" text-anchor="end">text</text>
+            <g class="click" data-id="responses"><rect class="box" x="20" y="358" width="120" height="44" rx="10"/><text x="80" y="380" text-anchor="middle">response</text><text class="lbl" x="80" y="394" text-anchor="middle">text, stream, or typed</text></g>
+            <!-- what runs on every pass -->
+            <text class="lbl" x="355" y="360" text-anchor="middle">each pass: WHAT RUNS ON EVERY PASS</text>
+          </svg>
+        </div>
+        <div class="col" id="plugR"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="dot" style="background:var(--loop)"></span>Beyond one agent</h2>
+      <div class="grid g4" id="beyond"></div>
+    </section>
+
+    <section>
+      <h2><span class="dot" style="background:var(--run)"></span>Run and ship</h2>
+      <div class="grid g3" id="run"></div>
+    </section>
+
+    <section>
+      <h2><span class="dot" style="background:var(--muted)"></span>How this maps to COMPARE_TO</h2>
+      <table class="map">
+        <thead><tr><th>FRAMEWORK concept</th><th>COMPARE_TO concept</th></tr></thead>
+        <tbody id="smap"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <aside id="panel">
+    <button class="close" onclick="closePanel()">close</button>
+    <h3 id="pTitle">Pick a box</h3>
+    <p class="ess hint" id="pEss">The panel fills with a short essence, a minimal code sample (Python unless marked), and links to the doc pages for that box. Source: DOCS HOST, fetched YYYY-MM-DD.</p>
+    <ul id="pBul"></ul>
+    <pre id="pCode" hidden></pre>
+    <div class="links" id="pLinks"></div>
+  </aside>
+
+  <footer>Source: DOCS HOST and REPO, fetched YYYY-MM-DD.</footer>
+</div>
+
+<script>
+const BASE = "https://DOCS-ROOT";   // relative link paths in D are appended to this
+const D = {
+  // Schema per node. k: prod | loopc | plug | run. c may be null. l paths relative to BASE or absolute.
+  // ---------- products (5): packages, batteries-included agent, dev UI / CLI, hosted runtime, what it supersedes ----------
+  pkg: { k:"prod", t:"TITLE", s:"SUBTITLE",
+    e:"Essence: 2-3 plain sentences a product manager can read.",
+    b:["Bullet with exact names","Bullet with defaults or limits"],
+    c:`# Python\nMINIMAL SAMPLE FROM THE DOCS`,
+    l:[["Link label","/relative/path"],["GitHub repo","https://github.com/ORG/REPO"]] },
+
+  // ---------- loop core (6): ids must stay surface, agent, models, loop, tools, responses (the SVG uses them) ----------
+  loop:      { k:"loopc", t:"The loop", s:"", e:"", b:[], c:null, l:[] },
+  surface:   { k:"loopc", t:"Your surface", s:"", e:"", b:[], c:null, l:[] },
+  agent:     { k:"loopc", t:"Agent", s:"", e:"", b:[], c:null, l:[] },
+  models:    { k:"loopc", t:"Model", s:"", e:"", b:[], c:null, l:[] },
+  tools:     { k:"loopc", t:"Tools", s:"", e:"", b:[], c:null, l:[] },
+  responses: { k:"loopc", t:"Response", s:"", e:"", b:[], c:null, l:[] },
+
+  // ---------- plug-ins (3 left + 3 right): sessions, context/memory, middleware | approvals, observability, checkpoints ----------
+  sessions:   { k:"plug", t:"", s:"", e:"", b:[], c:null, l:[] },
+  context:    { k:"plug", t:"", s:"", e:"", b:[], c:null, l:[] },
+  middleware: { k:"plug", t:"", s:"", e:"", b:[], c:null, l:[] },
+  approvals:  { k:"plug", t:"", s:"", e:"", b:[], c:null, l:[] },
+  observe:    { k:"plug", t:"", s:"", e:"", b:[], c:null, l:[] },
+  checkpoint: { k:"plug", t:"", s:"", e:"", b:[], c:null, l:[] },
+
+  // ---------- beyond one agent (4): workflows/graph, orchestration patterns, agents-as-tools, A2A / remote ----------
+  workflows:      { k:"loopc", t:"", s:"", e:"", b:[], c:null, l:[] },
+  orchestrations: { k:"loopc", t:"", s:"", e:"", b:[], c:null, l:[] },
+  agenttool:      { k:"loopc", t:"", s:"", e:"", b:[], c:null, l:[] },
+  a2a:            { k:"loopc", t:"", s:"", e:"", b:[], c:null, l:[] },
+
+  // ---------- run (3): hosting, declarative/skills, security ----------
+  hosting:     { k:"run", t:"", s:"", e:"", b:[], c:null, l:[] },
+  declarative: { k:"run", t:"", s:"", e:"", b:[], c:null, l:[] },
+  security:    { k:"run", t:"", s:"", e:"", b:[], c:null, l:[] },
+};
+
+// Exactly 10 rows: [node id to open, this framework's concept, the known framework's concept name]. One phrase each.
+const SMAP = [
+  ["agent", "FRAMEWORK agent class", "COMPARE_TO agent class"],
+];
+
+function node(id) {
+  const d = D[id];
+  return `<button class="node ${d.k}" data-id="${id}"><div class="t">${d.t}</div>${d.s ? `<div class="s">${d.s}</div>` : ""}</button>`;
+}
+const put = (sel, ids) => document.getElementById(sel).innerHTML = ids.map(node).join("");
+put("products", ["pkg"]);
+put("plugL", ["sessions","context","middleware"]);
+put("plugR", ["approvals","observe","checkpoint"]);
+put("beyond", ["workflows","orchestrations","agenttool","a2a"]);
+put("run", ["hosting","declarative","security"]);
+document.getElementById("smap").innerHTML = SMAP.map(([id, mine, theirs]) =>
+  `<tr><td><button class="lk" data-id="${id}">${mine}</button></td><td>${theirs}</td></tr>`).join("");
+
+const panel = document.getElementById("panel");
+function show(id) {
+  const d = D[id];
+  document.querySelectorAll(".node").forEach(n => n.classList.toggle("active", n.dataset.id === id));
+  panel.style.setProperty("--c", `var(--${d.k === "loopc" ? "loop" : d.k})`);
+  document.getElementById("pTitle").textContent = d.t;
+  const ess = document.getElementById("pEss"); ess.textContent = d.e; ess.classList.remove("hint");
+  document.getElementById("pBul").innerHTML = d.b.map(x => `<li>${x}</li>`).join("");
+  const code = document.getElementById("pCode"); code.hidden = !d.c; code.textContent = d.c || "";
+  document.getElementById("pLinks").innerHTML = d.l.map(([t,u]) => `<a href="${u.startsWith("http") ? u : BASE + u}" target="_blank" rel="noopener">${t} ↗</a>`).join("");
+  panel.classList.add("open");
+  history.replaceState(null, "", "#" + id);
+}
+function closePanel() { panel.classList.remove("open"); }
+document.addEventListener("click", e => { const n = e.target.closest("[data-id]"); if (n) show(n.dataset.id); });
+if (location.hash && D[location.hash.slice(1)]) show(location.hash.slice(1));
+</script>
+</body>
+</html>
