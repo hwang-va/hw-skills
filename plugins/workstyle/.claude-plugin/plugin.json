@@ -1,6 +1,6 @@
 {
   "name": "workstyle",
-  "version": "0.1.3",
-  "description": "How to work with an AI agent: pace, answer-concise, save-session.",
+  "version": "0.2.0",
+  "description": "How to work with an AI agent: pace, answer-concise, save-session, docs-map.",
   "author": { "name": "hw" }
 }

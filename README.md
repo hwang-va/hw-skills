@@ -18,6 +18,7 @@ General, reusable skills for working with AI agents. No company or domain conten
 - **pace** (`/workstyle:pace`): Restate the purpose in parts, one step and one decision per turn, short replies, working rules in a `PLAYBOOK.md`.
 - **answer-concise** (`/workstyle:answer-concise`): Focus mode. One or two sentences, one point per reply, until turned off.
 - **save-session** (`/workstyle:save-session`): Log the current session (date, machine, folder, session id, web link, brief, files) as one row in `~/work/sessions.md`, so it can be found and resumed later.
+- **docs-map** (`/workstyle:docs-map`): Turn a large docs site into one interactive single-page HTML mental-model map: hub diagram, regions, clickable chips with rules and doc links, a six-card essence strip.
 
 ### spec
 
