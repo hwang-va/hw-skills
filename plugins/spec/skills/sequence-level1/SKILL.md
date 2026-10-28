@@ -8,6 +8,7 @@ Target: Descriptive spec plus one named scenario; infer from full chat context. 
 Scope: Four element types only. Participants: one lifeline per actor or system. Messages: what happens, in order, one plain sentence each. Outcome: what the scenario ends with, one line. Trigger and Boundary: what starts it, what is out of scope.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## UML Sequence`; if absent, standard box-drawing glyphs.
 Output: Element list, divider, diagram, divider, gaps.
+Args: `concise`: per contract Levels, Concise: diagram, gap-count line.
 
 ## Process
 1. Extract: From spec, list Participants, Messages in order, Outcome, Trigger, out-of-scope items. Tag each Verified or Inferred.

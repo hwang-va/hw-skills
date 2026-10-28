@@ -9,6 +9,7 @@ Scope: Four elements. Behaviors: `AC-NN` per deterministic `FR-NN`; deterministi
 Cut: Edge cases, negatives, example values, thresholds, test type and path, bindings, load tests: Level 2. AI output: Evaluation.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Acceptance Criteria`, Cross-Section Rules 6 to 7.
 Output: Element list, divider, cards, divider, gaps.
+Args: `concise`: per contract Levels, Concise: cards, gap-count line.
 
 ## Process
 1. Partition: Each `FR-NN` is deterministic or AI output, never both; the Autonomy performer at T1 or above decides doubtful rows. A row a person or an agent may both perform keeps the person's half as the card and names the split in gaps.

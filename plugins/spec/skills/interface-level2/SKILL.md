@@ -9,6 +9,7 @@ Scope: Parties: C4 containers; auth: scheme and scope, agent = its `DA-NN`. Exch
 Cut: New rows, parties, kinds, risk lines: Level 1. Entity shape: Data Model. Who may call: Data Access. Failure cause: Risks.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Interfaces`, Cross-Section Rules 1, 2, and 13.
 Output: Element list, divider, register with cards, divider, gaps.
+Args: `concise`: per contract Levels, Concise: register with cards, gap-count line.
 
 ## Process
 1. Bind: Row and risk line unchanged, one card under each; parties as C4 Level 2 boxes (Rule 1); auth from spec, agent consumer = its `DA-NN`; silent = `Unknown`.

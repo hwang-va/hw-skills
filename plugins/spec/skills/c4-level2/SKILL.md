@@ -8,6 +8,7 @@ Target: Descriptive spec user points at; infer from full chat context. Level 1 o
 Scope: Six element types. Roles: each person type, what they may do, channel used (browser, CLI, Teams). Containers: deployable units inside the system (web app, API, database, agent runtime), each with technology; Components only where spec names internals. External Systems: each with integration type (REST, MCP, webhook, file), owner, and read / write. Relationships: every arrow with protocol and direction. Boundaries: what runs where. Notes: assumptions.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## C4`; if absent, standard box-drawing glyphs.
 Output: Element list, divider, diagram, divider, gaps.
+Args: `concise`: per contract Levels, Concise: diagram, gap-count line.
 
 ## Process
 1. Extract: From spec, list Roles + channel, Containers + technology, External Systems + integration type + owner, Relationships + protocol + direction, Boundaries, Notes. Tag each Verified, Inferred, or Unknown.

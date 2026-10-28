@@ -8,6 +8,7 @@ Target: Descriptive spec user points at; infer from full chat context. Agents Le
 Scope: Four element types only. Cost: `OP-NN`, one row per agent, dollars per run and per user per day, monthly cap; tokens only with a stated price, else `Unknown`. Limits: rate, concurrency, token budget per agent and per user, and the action at the limit: queue, refuse, degrade. Observability: traced one of run entity, logs only, none; where a person views it; the one signal that pages someone. Change Control: who may change model, prompt, or tool list; what runs before users see it; rollback. Cut: cost formula, limit values per tier, degrade order, trace fields, alert thresholds, canary share, incident process. Level 2 material.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## Operation`; if absent, standard box-drawing glyphs.
 Output: Element list, divider, register, divider, gaps.
+Args: `concise`: per contract Levels, Concise: register, gap-count line.
 
 ## Process
 1. Extract: Per `AG-NN`, list cost, limits, traced, change owner from spec and siblings. Tag each Verified, Inferred, or Unknown.

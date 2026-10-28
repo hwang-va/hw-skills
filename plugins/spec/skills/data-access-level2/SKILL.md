@@ -9,6 +9,7 @@ Scope: Per role, IDs kept. Gate and filter: block at `I-NN`, predicate `Entity.a
 Cut: New roles, entities, or cells: a wrong cell is a Level 1 gap. Citations: Grounding. Auth per call: Interfaces.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Data Access`, Cross-Section Rules 12 to 15.
 Output: Element list, divider, matrix with Level 2 lines, divider, gaps.
+Args: `concise`: per contract Levels, Concise: matrix with Level 2 lines, gap-count line.
 
 ## Process
 1. Bind: Gate from the Interfaces credential line; predicate in Data Model Level 2 spelling, no attribute = `?`, since a filter with no column cannot run; attribute rules from Data Model states and Autonomy checkpoints.

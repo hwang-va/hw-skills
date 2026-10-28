@@ -9,6 +9,7 @@ Scope: Four elements, one row per term. Term: the word the team uses, Level 0 ID
 Cut: Binding, synonyms, examples, UI labels, code names, change control, borrowed terms: Level 2. Attributes, rules: Data Model.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Glossary`, Cross-Section Rule 15.
 Output: Element list, divider, register and sweep, divider, gaps.
+Args: `concise`: per contract Levels, Concise: register and sweep, gap-count line.
 
 ## Process
 1. Terms: Every Level 0 row keeps its ID; every Data Model entity, C4 box, Activity lane or action noun with no row gets one, numbered after the last harvest ID (Rule 15).

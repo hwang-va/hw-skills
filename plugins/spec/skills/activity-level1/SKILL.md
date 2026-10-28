@@ -8,6 +8,7 @@ Target: Descriptive spec user points at; infer from full chat context.
 Scope: Four element types only. Start and End: what triggers the process, what state it ends in. Actions: the steps, one verb phrase each, in order. Decisions: branches that change the path, one question each. Owners: who or what performs each action, one swimlane each.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## UML Activity`; if absent, standard box-drawing glyphs.
 Output: Element list, divider, diagram, divider, gaps.
+Args: `concise`: per contract Levels, Concise: diagram, gap-count line.
 
 ## Process
 1. Extract: From spec, list Trigger, End state, Actions in order, Decisions, Owners. Tag each Verified or Inferred.

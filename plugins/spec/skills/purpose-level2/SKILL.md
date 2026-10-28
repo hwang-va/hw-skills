@@ -9,6 +9,7 @@ Scope: Six refinements, IDs kept. Evidence: tickets, transcripts, counts. Cost: 
 Cut: New measures, roles, or non-goals: a Level 1 gap. Shall sentences: Requirements. Failure modes: Risks.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Purpose`, Cross-Section Rule 5.
 Output: Element list, divider, register, divider, gaps.
+Args: `concise`: per contract Levels, Concise: register, gap-count line.
 
 ## Process
 1. Evidence and Cost: Counts, hours, money from spec; absent = `Unknown`, never an estimate: a guess reads as fact downstream.

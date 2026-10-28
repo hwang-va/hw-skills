@@ -9,6 +9,7 @@ Scope: Six refinements, IDs kept. Cause: one mechanism per row, plus OWASP LLM T
 Cut: New rows, modes, guards, severities: a miss = Level 1 gap. Caps: NFR. Tests: Evaluation.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Risks and Failure Modes`, Cross-Section Rules 9, 11, 13.
 Output: Element list, divider, register with detail lines, divider, gaps.
+Args: `concise`: per contract Levels, Concise: register with detail lines, gap-count line.
 
 ## Process
 1. Cause and Blast: One mechanism per row and its OWASP category; a rule or feed fault = `none`. Reversible while a T2 checkpoint or re-run stands before the person hurt; not once they acted or data left scope.

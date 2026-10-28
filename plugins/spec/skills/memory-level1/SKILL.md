@@ -8,6 +8,7 @@ Target: Descriptive spec user points at; infer from full chat context. Agents Le
 Scope: Four element types only. Memories: `ME-NN`, one row per kind per agent, what it holds in one line; a semantic row is a `KN-NN` pointer, never a copy; a working row only when the spec says sessions resume. Scope and Owner: per user, per agent, or shared; the person who owns it and may see it. Persist and Resume: persist one of full transcript, summary, facts, nothing; resume one of full, summary, last N turns, by relevance. Retention: one of forever, age limit, decay, pinned; forget right: what a user may delete, default delete removes derived memories too. Cut: entity, write rule, consolidation, resume order and ceiling, salience weights, decay function, audit. Level 2 material.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## Memory`; if absent, standard box-drawing glyphs.
 Output: Element list, divider, register, divider, gaps.
+Args: `concise`: per contract Levels, Concise: register, gap-count line.
 
 ## Process
 1. Extract: Per `AG-NN`, ask what it keeps after a run ends and what it reads when it starts; each answer is a row of one kind. Tag each Verified, Inferred, or Unknown.

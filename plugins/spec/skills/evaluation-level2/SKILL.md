@@ -9,6 +9,7 @@ Scope: A.1 Dataset: source, size, labeller, location; the domain person labels, 
 Cut: New rows, dimensions, bars, IDs: a miss is a Level 1 gap. Guards: Risks.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Evaluation`, Cross-Section Rules 8, 11, 14.
 Output: Element list, divider, register with detail lines, divider, gaps.
+Args: `concise`: per contract Levels, Concise: register with detail lines, gap-count line.
 
 ## Process
 1. Bind: Per Level 1 output, set, slices (enum values, an edge, an adversarial), rubric, tier line; a value the spec omits = `Unknown`, never blank or invented.

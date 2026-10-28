@@ -9,6 +9,7 @@ Scope: Four elements. Problem: who has what problem and today's workaround, in t
 Cut: Evidence, cost, job stories, formulas, sources, leading versus lagging, dates, reasons, bets, constraints: Level 2. Shall sentences: Requirements. Quality numbers: NFR. System purpose line: the C4 box, checked here, never restated.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Purpose`, Cross-Section Rule 5.
 Output: Element list, divider, card and measure rows, divider, gaps.
+Args: `concise`: per contract Levels, Concise: card, measure rows, gap-count line; Non-goal lines fold.
 
 ## Process
 1. Extract: Problem, workaround, roles, exclusions from spec; tag each Verified or Inferred; a role in C4 or here but not both = one gap, never a folded cell.

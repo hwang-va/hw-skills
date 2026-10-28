@@ -9,6 +9,7 @@ Scope: Four elements. Failure Modes: `RK-NN` per catalogue mode (hallucination, 
 Cut: Cause, OWASP category, blast radius, RPN, detection, fallback, residual: Level 2. Deterministic defects: Acceptance.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Risks and Failure Modes`, Cross-Section Rules 9, 11, 13.
 Output: Element list, divider, register, divider, gaps.
+Args: `concise`: per contract Levels, Concise: register, gap-count line.
 
 ## Process
 1. Modes: Walk the catalogue against every `AU-NN` at T3 or T4 and every `GR-NN`. One row per mode that applies; a mode that cannot apply gets a reason on the Coverage line (no tool granted = no wrong tool call).

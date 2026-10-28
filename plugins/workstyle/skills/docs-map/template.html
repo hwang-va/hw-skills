@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: one hub ringed by regions; click any chip for the detail drawer. Engine: do not edit below the REGIONS array. */
+/* Layout: three tabs. Each tab = essence strip (+ optional chooser) + one hub ringed by up to 9 regions; click any chip for the detail drawer. */
 :root{
   --bg:#f6f7f4; --fg:#1d2321; --mute:#5c6660; --line:#d8ddd6; --card:#ffffff;
   --hub:#0f3b3a; --hub-fg:#e8f1ee; --accent:#c2541a; --accent-soft:#fbe9df;
@@ -33,14 +33,24 @@ code{font:13px var(--mono);background:var(--chip);padding:1px 5px;border-radius:
 h1{font-size:22px;font-weight:600;margin:0;letter-spacing:-.01em}
 h2{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:0 0 8px}
 .wrap{max-width:1240px;margin:0 auto}
-header{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:baseline;justify-content:space-between;margin-bottom:14px}
+header{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:baseline;justify-content:space-between;margin-bottom:12px}
 header p{margin:0;color:var(--mute);max-width:62ch}
 #q{font:14px var(--sans);padding:7px 10px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--fg);width:260px;max-width:100%}
 #q:focus{outline:2px solid var(--accent);outline-offset:1px}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:16px}
+.tab{font:14px/1 var(--sans);padding:10px 14px;border:0;background:none;color:var(--mute);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab.on{color:var(--fg);border-bottom-color:var(--accent);font-weight:600}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.tab small{display:block;font-size:11px;font-weight:400;color:var(--mute);margin-top:4px}
 .essence{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin-bottom:18px}
 .essence div{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:13.5px}
 .essence b{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
-/* Grid areas: hub center. Rename areas to match your REGIONS ids; keep "hub". */
+.chooser{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:18px;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.chooser h2{grid-column:1/-1;margin:0}
+.chooser label{display:block;font-size:12px;color:var(--mute);margin-bottom:3px}
+.chooser select{width:100%;font:14px var(--sans);padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)}
+.chooser .out{grid-column:1/-1;background:var(--accent-soft);border-radius:8px;padding:10px 12px;font-size:14px}
+.chooser .out b{color:var(--accent)}
 .map{display:grid;gap:12px;grid-template-columns:repeat(3,1fr);grid-template-areas:
   "r1 hub r2"
   "r3 hub r4"
@@ -53,21 +63,26 @@ header p{margin:0;color:var(--mute);max-width:62ch}
 .region{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-width:0}
 .region .tag{font-size:13px;color:var(--mute);margin:0 0 8px}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{font:13px/1.2 var(--sans);padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:var(--chip);color:var(--fg);cursor:pointer}
+.chip{font:13px/1.2 var(--sans);padding:6px 10px;border-radius:999px;text-align:left;border:1px solid var(--line);background:var(--chip);color:var(--fg);cursor:pointer}
 .chip:hover{border-color:var(--accent)}
 .chip.on{background:var(--chip-on);color:var(--chip-on-fg);border-color:var(--chip-on)}
 .chip.dim{opacity:.25}
 .chip:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.r1{grid-area:r1}.r2{grid-area:r2}.r3{grid-area:r3}.r4{grid-area:r4}.r5{grid-area:r5}.r6{grid-area:r6}.r7{grid-area:r7}.r8{grid-area:r8}.r9{grid-area:r9}
 .hub{grid-area:hub;background:var(--hub);color:var(--hub-fg);border-color:transparent;display:flex;flex-direction:column;justify-content:center}
 .hub h2{color:var(--hub-fg);opacity:.75}
+.hub .tag{color:var(--hub-fg);opacity:.8}
 .loop{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:6px;margin:10px 0 14px;font-size:13.5px;text-align:center}
 .loop .step{background:rgba(255,255,255,.08);border-radius:8px;padding:10px 6px}
 .loop .step b{display:block;font-size:14px;margin-bottom:2px}
 .loop .arr{opacity:.6}
 .loop .back{grid-column:1/-1;font-size:12px;opacity:.7;text-align:center}
+.ladder{display:grid;gap:4px;margin:10px 0 14px;font-size:13px}
+.ladder div{display:grid;grid-template-columns:28px 1fr;gap:8px;background:rgba(255,255,255,.08);border-radius:6px;padding:7px 10px}
+.ladder b{font-family:var(--mono);opacity:.8}
+.ladder span small{display:block;opacity:.7}
 .hub .chips .chip{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18);color:var(--hub-fg)}
 .hub .chips .chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
-.r1{grid-area:r1}.r2{grid-area:r2}.r3{grid-area:r3}.r4{grid-area:r4}.r5{grid-area:r5}.r6{grid-area:r6}.r7{grid-area:r7}.r8{grid-area:r8}.r9{grid-area:r9}
 #drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--card);border-left:1px solid var(--line);
   box-shadow:-8px 0 24px rgba(0,0,0,.12);padding:18px 20px 40px;overflow:auto;transform:translateX(100%);transition:transform .2s;z-index:20;
   padding-right:max(20px,env(safe-area-inset-right,0px))}
@@ -90,76 +105,127 @@ header p{margin:0;color:var(--mute);max-width:62ch}
 <header>
   <div>
     <h1>TOOL Mental Map</h1>
-    <p>One mechanism in the middle. Everything else is a layer around it. Click any chip for the detail and the doc link. Source: <a href="DOCS_URL">DOCS_HOST</a>, read YYYY-MM-DD.</p>
+    <p>Tab 1: what the pieces are. Tab 2: how you drive it. Tab 3: my questions, short answers. Click any chip for the rule and the doc link. Source: <a href="DOCS_URL">DOCS_HOST</a>, read YYYY-MM-DD.</p>
   </div>
   <input id="q" type="search" placeholder="Filter chips" aria-label="Filter">
 </header>
-
-<section class="essence" aria-label="The core to internalize">
-  <div><b>1 · Label</b>One rule sentence the reader can keep without the chips.</div>
-  <div><b>2 · Label</b>One rule sentence.</div>
-  <div><b>3 · Label</b>One rule sentence.</div>
-  <div><b>4 · Label</b>One rule sentence.</div>
-  <div><b>5 · Label</b>One rule sentence.</div>
-  <div><b>6 · Label</b>One rule sentence.</div>
-</section>
-
+<nav class="tabs" id="tabs"></nav>
+<section class="essence" id="essence" aria-label="The core to internalize"></section>
+<div id="chooser"></div>
 <div class="map" id="map"></div>
-
-<p class="foot">Trigger rule: symptom → add this · symptom → add this · symptom → add this.</p>
+<p class="foot" id="foot"></p>
 </div>
-
 <aside id="drawer" aria-live="polite">
   <button id="close" aria-label="Close">✕</button>
   <div id="dbody"></div>
 </aside>
 
 <script>
-const D="DOCS_ROOT/";   // doc root; chip links are relative to it
-// HUB_STEPS: the central mechanism, 3 steps + loop note. Set to null for no diagram.
-const HUB_STEPS=[["Step 1","short gloss"],["Step 2","short gloss"],["Step 3","short gloss"]];
-const HUB_NOTE="↺ repeat until done";
-// REGIONS: first entry must have id "hub". Other ids must match grid-area names r1..r9.
-const REGIONS=[
-{id:"hub",title:"The core mechanism",tag:"One sentence stating the loop or lifecycle.",nodes:[
- {n:"Chip",one:"One-line definition.",when:"When / how to use it.",b:["Hard fact 1","Hard fact 2"],l:[["Doc page","path"]]},
-]},
-{id:"r1",title:"Region title",tag:"The question this region answers.",nodes:[
- {n:"Chip",one:"One-line definition.",when:"When / how.",b:["Fact"],l:[["Doc page","path"]]},
-]},
-];
+const D="DOCS_ROOT/";   // doc root; chip links are relative to it unless they start with http
 
-/* ---------- engine: no edits needed below ---------- */
-const map=document.getElementById("map"),idx=[];
-REGIONS.forEach(r=>{
-  const sec=document.createElement("section");sec.className="region "+r.id;
-  let inner=`<h2>${r.title}</h2><p class="tag">${r.tag}</p>`;
-  if(r.id==="hub"&&HUB_STEPS) inner+=`<div class="loop">`+HUB_STEPS.map(([t,g])=>`<div class="step"><b>${t}</b>${g}</div>`).join(`<span class="arr">→</span>`)+`<div class="back">${HUB_NOTE}</div></div>`;
-  inner+=`<div class="chips">`+r.nodes.map((n,i)=>`<button class="chip" data-r="${r.id}" data-i="${i}">${n.n}</button>`).join("")+`</div>`;
-  sec.innerHTML=inner;map.appendChild(sec);
-  r.nodes.forEach((n,i)=>idx.push({r:r.id,i,text:(n.n+" "+n.one+" "+(n.when||"")+" "+n.b.join(" ")).toLowerCase()}));
-});
+/* Chip schema (same on every tab):
+   { n:"Name or question", one:"One-line definition or answer.", when:"Decision rule or the command that invokes it.",
+     b:["Hard fact 1","Hard fact 2"], l:[["Link label","relative/doc/path"]] }
+   Region: { id:"short", title:"Region title", tag:"The question this region answers.", nodes:[chips] }
+   The first region of each tab must have id:"hub". Up to 9 more regions fill r1..r9 in order. */
+
+/* ---- TAB 1: COMPONENTS (nouns: what the pieces are) ---- */
+const MODEL={id:"model",label:"Components",sub:"what the pieces are",
+hubSteps:[["Step 1","short gloss"],["Step 2","short gloss"],["Step 3","short gloss"]],hubNote:"↺ repeat until done",
+essence:[["1 · Label","One rule sentence the reader keeps without the chips."],["2 · Label","One rule sentence."],["3 · Label","One rule sentence."],["4 · Label","One rule sentence."],["5 · Label","One rule sentence."],["6 · Label","One rule sentence."]],
+foot:"Trigger rule: symptom → add this · symptom → add this.",
+regions:[
+{id:"hub",title:"The core mechanism",tag:"One sentence stating the loop or lifecycle.",nodes:[
+ {n:"Chip",one:"One-line definition.",when:"When / how.",b:["Fact"],l:[["Doc page","path"]]}]},
+{id:"r1",title:"Region title",tag:"The question this region answers.",nodes:[
+ {n:"Chip",one:"One-line definition.",when:"When / how.",b:["Fact"],l:[["Doc page","path"]]}]},
+]};
+
+/* ---- TAB 2: DRIVE (verbs: how you run it, alone or at scale) ---- */
+const DRIVE={id:"drive",label:"Drive",sub:"how you run it",
+ladder:[["1","Lowest rung","what it means"],["2","Next rung","what it adds"],["3","Top rung","what it adds"]],
+chooser:{title:"Pick an approach",
+ questions:[
+  {id:"c1",label:"Who decides the next step?",options:[["a","Option A"],["b","Option B"]]},
+  {id:"c2",label:"Second question?",options:[["no","No"],["yes","Yes"]]}],
+ recommend:a=>{const base={a:["Approach A","How to start it."],b:["Approach B","How to start it."]}[a.c1];
+   const extra=a.c2==="yes"?" Extra advice when the second answer is yes.":"";
+   return `<b>${base[0]}.</b> ${base[1]}${extra}`}},
+essence:[["1 · Label","One rule sentence."],["2 · Label","One rule sentence."],["3 · Label","One rule sentence."],["4 · Label","One rule sentence."],["5 · Label","One rule sentence."],["6 · Label","One rule sentence."]],
+foot:"Symptom → verb: symptom → verb · symptom → verb.",
+regions:[
+{id:"hub",title:"The driving ladder",tag:"Each rung adds autonomy and cost. Start low.",nodes:[
+ {n:"Who coordinates?",one:"The first question; answer it and the approach is decided.",when:"…",b:[],l:[["Doc page","path"]]}]},
+{id:"verb1",title:"Verb",tag:"What this verb means here.",nodes:[
+ {n:"Chip",one:"One-line definition.",when:"Command or decision rule.",b:["Fact"],l:[["Doc page","path"]]}]},
+]};
+
+/* ---- TAB 3: Q&A (user questions, short answers, links) ---- */
+const QA={id:"qa",label:"Q&A",sub:"my questions, short answers",
+essence:[["Short answer 1","One sentence."],["Short answer 2","One sentence."],["Short answer 3","One sentence."],["Short answer 4","One sentence."],["Short answer 5","One sentence."],["Honest gaps","What the tool cannot do yet."]],
+foot:"Reading order: hub first, then the group that matches your situation.",
+regions:[
+{id:"hub",title:"The user's own questions",tag:"Asked in the user's words. Answer fully here.",nodes:[
+ {n:"How do I …?",one:"Short direct answer.",when:"Do this: command or file.",b:["Step or fact","Caveat"],l:[["Doc page","path"]]}]},
+{id:"g1",title:"Situation group",tag:"What these questions have in common.",nodes:[
+ {n:"Question?",one:"Short answer.",when:"Do this.",b:[],l:[["Doc page","path"]]}]},
+]};
+
+/* ================= ENGINE: no edits needed below ================= */
+const TABS=[MODEL,DRIVE,QA];
+let TAB=TABS[0],idx=[];
+const map=document.getElementById("map"),tabs=document.getElementById("tabs");
+TABS.forEach(t=>{const b=document.createElement("button");b.className="tab";b.id="tab-"+t.id;b.innerHTML=`${t.label}<small>${t.sub}</small>`;b.onclick=()=>render(t.id);tabs.appendChild(b)});
+function buildChooser(c){
+  const el=document.getElementById("chooser");
+  if(!c){el.innerHTML="";return}
+  el.innerHTML=`<section class="chooser"><h2>${c.title}</h2>`+c.questions.map(q=>`<div><label for="${q.id}">${q.label}</label><select id="${q.id}">${q.options.map(([v,t])=>`<option value="${v}">${t}</option>`).join("")}</select></div>`).join("")+`<div class="out" id="cout"></div></section>`;
+  const run=()=>{const a={};c.questions.forEach(q=>a[q.id]=document.getElementById(q.id).value);document.getElementById("cout").innerHTML=c.recommend(a)};
+  c.questions.forEach(q=>document.getElementById(q.id).addEventListener("change",run));run();
+}
+function render(id){
+  TAB=TABS.find(t=>t.id===id)||TABS[0];
+  document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("on",b.id==="tab-"+TAB.id));
+  document.getElementById("essence").innerHTML=TAB.essence.map(([h,t])=>`<div><b>${h}</b>${t}</div>`).join("");
+  buildChooser(TAB.chooser);
+  document.getElementById("foot").innerHTML=TAB.foot||"";
+  map.innerHTML="";idx=[];let k=0;
+  TAB.regions.forEach(r=>{
+    const sec=document.createElement("section");sec.className="region "+(r.id==="hub"?"hub":"r"+(++k));
+    let inner=`<h2>${r.title}</h2><p class="tag">${r.tag}</p>`;
+    if(r.id==="hub"&&TAB.hubSteps) inner+=`<div class="loop">`+TAB.hubSteps.map(([t,g])=>`<div class="step"><b>${t}</b>${g}</div>`).join(`<span class="arr">→</span>`)+`<div class="back">${TAB.hubNote||""}</div></div>`;
+    if(r.id==="hub"&&TAB.ladder) inner+=`<div class="ladder">`+TAB.ladder.map(([n,t,g])=>`<div><b>${n}</b><span>${t}<small>${g}</small></span></div>`).join("")+`</div>`;
+    inner+=`<div class="chips">`+r.nodes.map((n,i)=>`<button class="chip" data-r="${r.id}" data-i="${i}">${n.n}</button>`).join("")+`</div>`;
+    sec.innerHTML=inner;map.appendChild(sec);
+    r.nodes.forEach((n,i)=>idx.push({r:r.id,i,text:(n.n+" "+n.one+" "+(n.when||"")+" "+n.b.join(" ")).toLowerCase()}));
+  });
+  closeDrawer();filter();
+  try{history.replaceState(null,"","#"+TAB.id)}catch(e){}
+}
 const drawer=document.getElementById("drawer"),dbody=document.getElementById("dbody");let cur=null;
 function show(rid,i){
-  const r=REGIONS.find(x=>x.id===rid),n=r.nodes[i];
+  const r=TAB.regions.find(x=>x.id===rid),n=r.nodes[i];
   document.querySelectorAll(".chip.on").forEach(c=>c.classList.remove("on"));
   cur=document.querySelector(`.chip[data-r="${rid}"][data-i="${i}"]`);cur.classList.add("on");
-  dbody.innerHTML=`<div class="crumb">${r.title}</div><h3>${n.n}</h3><p class="one">${n.one}</p>`
+  dbody.innerHTML=`<div class="crumb">${TAB.label} · ${r.title}</div><h3>${n.n}</h3><p class="one">${n.one}</p>`
     +(n.when?`<div class="when"><b>When / how:</b> ${n.when}</div>`:"")
-    +`<ul>${n.b.map(x=>`<li>${x}</li>`).join("")}</ul>`
+    +(n.b.length?`<ul>${n.b.map(x=>`<li>${x}</li>`).join("")}</ul>`:"")
     +`<div class="links">${n.l.map(([t,u])=>`<a href="${/^https?:/.test(u)?u:D+u}" target="_blank" rel="noopener">${t} ↗</a>`).join("")}</div>`;
   drawer.classList.add("open");
 }
+function closeDrawer(){drawer.classList.remove("open");cur&&cur.classList.remove("on");cur=null}
 map.addEventListener("click",e=>{const c=e.target.closest(".chip");if(c)show(c.dataset.r,+c.dataset.i)});
-document.getElementById("close").onclick=()=>{drawer.classList.remove("open");cur&&cur.classList.remove("on")};
-document.addEventListener("keydown",e=>{if(e.key==="Escape")document.getElementById("close").click()});
-document.getElementById("q").addEventListener("input",e=>{
-  const q=e.target.value.trim().toLowerCase();
+document.getElementById("close").onclick=closeDrawer;
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDrawer()});
+function filter(){
+  const q=document.getElementById("q").value.trim().toLowerCase();
   document.querySelectorAll(".chip").forEach(c=>{
     const hit=!q||idx.find(x=>x.r===c.dataset.r&&x.i==c.dataset.i).text.includes(q);
     c.classList.toggle("dim",!hit);
   });
-});
+}
+document.getElementById("q").addEventListener("input",filter);
+render(location.hash.replace("#","")||"model");
 </script>
 </body>
 </html>

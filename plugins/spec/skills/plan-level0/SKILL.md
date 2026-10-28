@@ -9,6 +9,7 @@ Scope: One row per Catalog section. Depth: `Skip`, `L1`, `L2`; reader sets defau
 Cut: Rendering sections, running skills, numeric risk scores, effort estimates: section skills own output; user runs one skill per turn.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, Catalog (Trigger column, AI Sections); each skill's `Target:` line for inputs.
 Output: Goal and reader line, divider, run plan, divider, gaps.
+Args: `concise`: fewest sections that still serve the goal: `Always` rows plus one section per goal heading or named risk; depth `L1` only, `L2` only where money moves, data leaves, or an action is irreversible; one behaviour diagram, Sequence or Activity, not both; AI Sections `Skip` when the brief names no AI actor, even where the Catalog says `Always`, reason `no AI actor`; every other row `Skip`, reason `concise`; rule-check line ends `concise`; file `plan-concise.md`.
 
 ## Process
 1. Ask: Goal, reader; wait for both. Answer already in chat = skip that question.

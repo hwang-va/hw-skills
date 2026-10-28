@@ -9,6 +9,7 @@ Scope: Four elements. Actions: `AU-NN` per decision or side effect, AI or human,
 Cut: Risk profile, volume, conditional tiers, promotion criteria, deadlines, evidence pack, kill switch, owner, audit entity: Level 2. Bar per tier move: Evaluation. Guards: Risks. Approver screen: Product Surface.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Autonomy`, Cross-Section Rules 4, 8, 9, 13.
 Output: Element list, divider, map, divider, gaps.
+Args: `concise`: per contract Levels, Concise: map, gap-count line.
 
 ## Process
 1. Actions: One row per Activity action that decides or has a side effect, in process order, Activity spelling (Rule 4); a spec verb Activity lacks is one gap, never a new action.

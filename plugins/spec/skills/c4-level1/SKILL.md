@@ -8,6 +8,7 @@ Target: Descriptive spec user points at; infer from full chat context.
 Scope: Four element types only. People: who uses the system, one box per role. System: the one box in focus, one-line purpose. External Systems: what it depends on or feeds, one box each. Relationships: labelled arrows saying what flows, not how.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## C4`; if absent, standard box-drawing glyphs.
 Output: Element list, divider, diagram, divider, gaps.
+Args: `concise`: per contract Levels, Concise: diagram, gap-count line.
 
 ## Process
 1. Extract: From spec, list People, System, External Systems, Relationships. Tag each Verified (stated) or Inferred (implied).

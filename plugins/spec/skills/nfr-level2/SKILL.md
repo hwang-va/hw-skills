@@ -9,6 +9,7 @@ Scope: Five refinements plus trade-offs, IDs kept. Applies: the artifact, one `I
 Cut: New rows or targets: a missing number is a Level 1 gap. Failure modes: Risks. Test steps: Acceptance.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Non-Functional Requirements`, Cross-Section Rules 5 and 6.
 Output: Element list, divider, register with Level 2 lines, divider, gaps.
+Args: `concise`: per contract Levels, Concise: register with Level 2 lines, gap-count line.
 
 ## Process
 1. Bind: Per `NF-NN`, the `I-NN` from the Level 1 measure, else its C4 container; load, cap, pager from spec, else `Unknown` plus `DEC-NN` where one exists, since a guessed rate sizes the wrong system.

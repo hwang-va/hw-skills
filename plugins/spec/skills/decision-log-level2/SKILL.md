@@ -9,6 +9,7 @@ Scope: Five elements, IDs kept. Context: spec sentence or silence, then what the
 Cut: New rows or questions, answers the spec does not hold (a miss = Level 1 gap). `Unknown` items born after Level 1 ran: one counted gap, never new rows.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Decision Log`, Cross-Section Rule 14.
 Output: Element list, divider, register with detail lines, divider, gaps.
+Args: `concise`: per contract Levels, Concise: register with detail lines, gap-count line.
 
 ## Process
 1. Bind: Per row, context from its source items, spec first; options from the drawn default, the alternative a gap named, and do-nothing; no new design.

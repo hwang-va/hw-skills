@@ -9,6 +9,7 @@ Scope: Four elements. Quality: `NF-NN`, one Scale per row, an ISO 25010 word (pe
 Cut: Component scope, load, ceiling, measuring tool, breach action, trade-offs: Level 2. Outcomes: Purpose. Behavior: Functional Requirements.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Non-Functional Requirements`, Cross-Section Rules 5 and 6.
 Output: Element list, divider, register, divider, gaps.
+Args: `concise`: per contract Levels, Concise: register, gap-count line.
 
 ## Process
 1. Qualities: One candidate per number or quality word in spec, per external feed (freshness), per user-facing `I-NN` (latency), per data store (security, residency), per AI action at T1 or above (cost, model latency, audit); merge same-Scale candidates.

@@ -9,6 +9,7 @@ Scope: Four elements. Decision: `DEC-NN`, one question per line, primary source 
 Cut: Context, options, consequences by ID, supersession, revisit trigger, notes: Level 2. Inferred-only items: their own gap lists.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Decision Log`, Cross-Section Rule 14.
 Output: Element list, divider, register, divider, gaps.
+Args: `concise`: per contract Levels, Concise: register, gap-count line.
 
 ## Process
 1. Harvest: Under every sibling `## Gaps`, each numbered item carrying `Unknown` is one item keyed output code and number; count them.

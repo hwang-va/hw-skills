@@ -9,6 +9,7 @@ Scope: Six refinements, IDs kept. Precondition: the state or rule the sentence r
 Cut: New rows, sentences, sources, priorities: a miss is a Level 1 gap. Given, When, Then: Acceptance. Evaluation methods, quality targets, risks: own sections.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Functional Requirements`, Cross-Section Rules 5 to 7.
 Output: Element list, divider, rows with detail lines, divider, gaps.
+Args: `concise`: per contract Levels, Concise: rows with detail lines, gap-count line.
 
 ## Process
 1. Bind: Per row, the precondition (entity exists, right held, threshold set, tier in force; unvalued = its open ID, never a guess), the rationale (spec silent = Inferred), and every implementing element from the outputs present.

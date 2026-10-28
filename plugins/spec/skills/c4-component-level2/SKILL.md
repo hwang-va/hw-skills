@@ -8,6 +8,7 @@ Target: Descriptive spec user points at; infer from full chat context. C4 Level 
 Scope: Container in Focus: Level 2 name, technology. Callers: people, containers, external systems at the edge. Components: name, one-line responsibility, technology; kind one of entry point, domain logic, data access, integration adapter, shared utility. Ownership: which component owns each Data Model entity and serves each Interfaces contract. Relationships: what is called, call style (function, interface, event, query); outward arrows with protocol. Dependency Rules: forbidden directions (Clean Architecture dependency rule). Folder Tree: one top-level folder per component, same names. Notes: assumptions. Cut: classes, functions, file names below folder; where it runs (Deployment view).
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## C4`, `### Level 2 Component`; if absent, standard box-drawing glyphs.
 Output: Element list, divider, diagram, divider, folder tree, divider, gaps.
+Args: `concise`: per contract Levels, Concise: diagram, divider, folder tree, gap-count line.
 
 ## Process
 1. Extract: From spec and siblings, list each Scope element for the one container. Tag each Verified, Inferred, or Unknown.

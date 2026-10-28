@@ -8,6 +8,7 @@ Target: Descriptive spec user points at; infer from full chat context. Data Mode
 Scope: Four element types only. Corpora: every searchable body named, `KN-NN`, layer one of raw, catalog, distilled; store kind one of local file system, object store, relational table, vector index, never a vendor name; a folder of Markdown or JSONL on the user's machine is a raw corpus; a decision, memo, or review table is a corpus as soon as the spec says it feeds back. Origin and Unit: origin one of internal file, vendor feed, agent web search, human note, product decision; unit one of file, row, chunk, unit. Search and Consumer: search one of keyed, full-text, semantic, hybrid, agentic (the agent loops list, read, grep; a search kind, never a store); agent path as an `I-NN` tool or `load whole`, person path as a screen, `none` when a consumer has no path. Feedback: who writes new knowledge, into which layer, on what trigger. Cut: file format of the unit, schema, chunking, embedding model, search recipe order, context budget, promotion approval, freshness. Level 2 material.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## Knowledge`; if absent, standard box-drawing glyphs.
 Output: Element list, divider, register, divider, layer diagram, divider, gaps.
+Args: `concise`: per contract Levels, Concise: register, divider, layer diagram, gap-count line.
 
 ## Process
 1. Extract: From spec and siblings, list every body of content an agent or a person searches, loads, or writes. Tag each Verified, Inferred, or Unknown.

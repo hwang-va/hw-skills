@@ -8,6 +8,7 @@ Target: Descriptive spec user points at; infer from full chat context. Activity 
 Scope: Four element types only. Agents: every AI worker named, `AG-NN`, one-line job stating the outcome it owns; a worker is any model call with its own job and trigger, so a hidden suggester counts. Trigger: one word from the vocabulary: user turn, after run, background, scheduled, review. Surface: a Product Surface screen or surface type, or hidden, plus who receives the output. Tier: pointer to the `AU-NN` rows the agent performs and the highest tier among them; `Unknown` when Autonomy has not run. Cut: tools, memory, model, cost, handoffs, orchestration pattern, failure text. Level 2 material.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## Agents`; if absent, standard box-drawing glyphs.
 Output: Element list, divider, register, divider, gaps.
+Args: `concise`: per contract Levels, Concise: register, gap-count line.
 
 ## Process
 1. Extract: From spec and siblings, list every AI worker: each place a model runs with its own job and trigger. Tag each Verified, Inferred, or Unknown.

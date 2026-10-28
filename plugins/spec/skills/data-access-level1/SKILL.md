@@ -9,6 +9,7 @@ Scope: Four elements. Roles: one line per C4 person and per agent as its own pri
 Cut: Gate and filter, masks, never-holds, delegation terms, rule store, revocation: Level 2. What an output cites: Grounding. Auth per call: Interfaces.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Data Access`, Cross-Section Rules 12 to 15.
 Output: Element list, divider, matrix, divider, gaps.
+Args: `concise`: per contract Levels, Concise: matrix, gap-count line.
 
 ## Process
 1. Roles: One line per C4 person; one per agent at T1 or above, never the user by proxy, since a proxy hides who acted; a folded person keeps a `?` line.

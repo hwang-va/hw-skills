@@ -8,6 +8,7 @@ Target: Descriptive spec user points at; infer from full chat context. C4 Level 
 Scope: Four element types only. Screens: every screen, pane, or tool surface named, one-line purpose stating the job the user does there; a tool surface is the tool set an external AI host (Claude, ChatGPT over MCP) renders on the product's behalf. Components: what sits on each screen, named from the vocabulary: AI component, table, list, form, chart, detail panel, control, tool. Entry and Exit: how the user arrives at each screen and where they go next, verb on the arrow. Surface Type: where the screen lives: web app, mobile app, CLI, chat pane, email, message, document, or host chat; a CLI command is a screen whose arguments are the form and whose output is the table or detail panel.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## Product Surface`; if absent, standard box-drawing glyphs.
 Output: Element list, divider, diagram, divider, gaps.
+Args: `concise`: per contract Levels, Concise: diagram, gap-count line.
 
 ## Process
 1. Extract: From spec, list Screens + purpose, Components per screen, Entry and Exit, Surface Type. Tag each Verified (stated) or Inferred (implied).

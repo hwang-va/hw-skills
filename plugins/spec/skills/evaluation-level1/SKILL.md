@@ -9,6 +9,7 @@ Scope: Evaluated Outputs: `EV-NN` per AI output at T1 or above and per dimension
 Cut: Dataset, slices, rubric, judge calibration, cadence, promotion, gate, drift, model change, budget: Level 2. Deterministic tests: Acceptance.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Evaluation`, Cross-Section Rules 6, 8, 11.
 Output: Element list, divider, register, divider, gaps.
+Args: `concise`: per contract Levels, Concise: register, gap-count line.
 
 ## Process
 1. Outputs: One per Autonomy action at T1 or above whose result someone acts on; store, serve, rule-compare, and send actions go on one coverage line with their `AC-NN` (Rule 6).

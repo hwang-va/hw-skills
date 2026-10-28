@@ -8,6 +8,7 @@ Target: Memory Level 1 output user points at; infer from full chat context. Data
 Scope: Six line kinds per `ME-NN`. Entity: `◆ Entity.attributes` with the link to the run or session. Write rule: when extracted, by the agent in the run or by consolidation after it; never written: secrets, Data Access barred fields, other users' data. Consolidation: trigger (after N sessions or hours, or on demand), actions (merge duplicates, drop contradicted facts, absolute dates, cap the index), reviewer, whether the user sees the diff, pointer to its `AU-NN`. Resume recipe: one ceiling per agent stated on its first row; order pinned, then score, then on demand. Salience: three weights as numbers for recency, importance, relevance, `Unknown` when the spec gives none; who may pin. Decay and forget: half-life or schedule, what revives, delete removes derived memories, audit of reads and deletes. Capability: names from the reference only. Cut: storage engine, embedding model, prompt text, vendor names.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## Memory`, `### Level 2`; if absent, standard box-drawing glyphs.
 Output: Element list, divider, Level 1 register verbatim with Level 2 lines under each row, divider, gaps.
+Args: `concise`: per contract Levels, Concise: Level 1 register verbatim with Level 2 lines under each row, gap-count line.
 
 ## Process
 1. Extract: Per `ME-NN`, list the six line kinds from spec and siblings. Tag each Verified, Inferred, or Unknown.

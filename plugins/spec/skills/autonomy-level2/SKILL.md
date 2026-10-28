@@ -9,6 +9,7 @@ Scope: Risk: `risk:` undo, blast radius, cost of error, `I-NN` tools with rating
 Cut: New actions, tiers, IDs: a wrong tier is a Level 1 gap. Bars: Evaluation. Tool contracts: Interfaces. Causes: Risks. Layout: Product Surface.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Autonomy`, Cross-Section Rules 4, 8, 9, 13, 14.
 Output: Element list, divider, map with line blocks, divider, gaps.
+Args: `concise`: per contract Levels, Concise: map with line blocks, gap-count line.
 
 ## Process
 1. Bind: Per `AU-NN` in Level 1 order, pull each field from its named sibling; a value none holds = `Unknown`, with an existing `DEC-NN` or none.

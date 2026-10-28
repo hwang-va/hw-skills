@@ -9,6 +9,7 @@ Scope: Four elements. Sources: `GR-NN` per AI output a person or system acts on;
 Cut: Freshness, retrieval method, entitlement at retrieval, input as data, citation schema, pointer or passage, partial result, refusal text per case, memory: Level 2. Who may read: Data Access. How good: Evaluation.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Grounding`, Cross-Section Rules 10 to 12.
 Output: Element list, divider, register, divider, gaps.
+Args: `concise`: per contract Levels, Concise: register, gap-count line.
 
 ## Process
 1. Outputs: One row per Autonomy action whose result someone acts on, labelled by the Data Model entity it produces (Rule 15); store, index, rule-compare, and send actions go on one coverage line with the reason.

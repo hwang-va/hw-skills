@@ -9,6 +9,7 @@ Scope: Eight lines per Level 1 row. `as-of`: attribute, refresh cadence, stale >
 Cut: New rows, sources, scope: a wrong source is a Level 1 gap. Who may read: Data Access. How good: Evaluation. Call schema: Interfaces.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Grounding`, Cross-Section Rules 10 to 12.
 Output: Element list, divider, register with Level 2 lines, divider, gaps.
+Args: `concise`: per contract Levels, Concise: register with Level 2 lines, gap-count line.
 
 ## Process
 1. Bind: Per `GR-NN`, Level 1 order and spelling, each line from its Target sibling; stale age from NFR, else the Risk fallback; nothing held = `Unknown`, never invented (Rule 10).

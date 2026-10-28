@@ -8,6 +8,7 @@ Target: Descriptive spec user points at; infer from full chat context. Level 1 o
 Scope: Six element types. Start and End: trigger event, preconditions, every end state (done, rejected, abandoned). Actions: steps plus sub-steps where one action hides real work; Object Flow: the data or document each action consumes and produces. Decisions: guard condition on every exit arrow, merge points where branches rejoin. Owners: lanes split into roles and systems, cross-lane handoffs called out. Parallel: fork and join for concurrent work. Exceptions: timeouts, failures, notes.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## UML Activity`; if absent, standard box-drawing glyphs.
 Output: Element list, divider, diagram, divider, gaps.
+Args: `concise`: per contract Levels, Concise: diagram, gap-count line.
 
 ## Process
 1. Extract: From spec, list Trigger, Preconditions, End states, Actions + sub-steps, Objects, Decisions + guards, Owners, Handoffs, Parallel paths, Exceptions. Tag each Verified, Inferred, or Unknown.

@@ -9,6 +9,7 @@ Scope: Four elements. Requirement: `FR-NN`, one shall sentence in one EARS patte
 Cut: Preconditions, rationale, implementing elements, test link, release, rejected asks: Level 2. Numeric targets: NFR. Given, When, Then: Acceptance.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Functional Requirements`, Cross-Section Rules 5 to 7.
 Output: Element list, divider, register, divider, gaps.
+Args: `concise`: per contract Levels, Concise: register, gap-count line.
 
 ## Process
 1. Harvest: One candidate per Activity action, Autonomy action, Product Surface screen, Interfaces row, and spec sentence asking for behavior (need, please, will, shall); one capability in several siblings = one row. Unwanted: one If … then row per Grounding empty result and Activity exception, Detail pointing at that row, tagged Inferred; none anywhere = one gap.

@@ -9,6 +9,7 @@ Scope: Five refinements per Level 1 row. Binding: `◆ Entity` or `◆ Entity.at
 Cut: New terms, definitions, winners: a miss is a Level 1 gap. Attribute types, keys, states: Data Model. Screen content: Product Surface. Sweep: Level 1, carried.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Glossary`, Cross-Section Rule 15.
 Output: Element list, divider, register with detail lines, divider, gaps.
+Args: `concise`: per contract Levels, Concise: register with detail lines, gap-count line.
 
 ## Process
 1. Bind: Per term, the one thing it names in Data Model Level 2, else C4 Level 2, else `none`; `none` on a box term is a missing entity (Rule 15), one gap.

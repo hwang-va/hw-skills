@@ -9,6 +9,7 @@ Scope: Four element types only. States: each named condition the entity rests in
 Cut: Guards, entry and exit actions, composite and parallel states, timeouts, who may fire each event, audit per transition: Level 2 material. Attributes: Data Model. Process steps across entities: Activity.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## UML State Machine`; if absent, standard box-drawing glyphs.
 Output: Element list, divider, diagram, divider, forbidden list, divider, gaps.
+Args: `concise`: per contract Levels, Concise: diagram, divider, forbidden list, gap-count line.
 
 ## Process
 1. Extract: From spec and Data Model Level 2, list States, Events with from and to state, Initial, Finals, Forbidden with reason. Tag each Verified, Inferred, or Unknown.

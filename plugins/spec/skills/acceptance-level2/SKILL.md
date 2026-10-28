@@ -9,6 +9,7 @@ Scope: Six elements. Edge: one case per card, a partition or a boundary value (I
 Cut: New cards, Given, When, or Then lines, or IDs: a miss is a Level 1 gap.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Acceptance Criteria`, Cross-Section Rules 6 to 7.
 Output: Element list, divider, cards, divider, gaps.
+Args: `concise`: per contract Levels, Concise: cards, gap-count line.
 
 ## Process
 1. Extract: Per card, the branch or boundary its Then hides; each Activity branch to one Edge line. Example row in the tester's columns; a value the spec lacks = placeholder, Inferred.

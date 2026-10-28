@@ -8,6 +8,7 @@ Target: Agents Level 1 output user points at; infer from full chat context. Inte
 Scope: Six line kinds per `AG-NN`. Inputs and outputs: `◆ Entity` each side. Trigger detail: schedule expression, watched event or entity, debounce, what stops a background agent. Model and cost cap: model class, dollars per run and per day; tokens only when the spec gives no price. Tools and memory: `I-NN` pointers; what persists across runs, its entity, retention. Handoff and failure: arrows to other agents with the pattern word, once per product: single, sequential, concurrent, group chat, handoff, magentic; what the user sees when the agent fails or is late, who is paged. Capability: names from the reference only, `Unknown` plus one gap when the reference lacks it. Cut: prompts, system text, evaluation bars, risk rows.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## Agents`, `### Level 2`; if absent, standard box-drawing glyphs.
 Output: Element list, divider, Level 1 register verbatim with Level 2 lines under each row, divider, gaps.
+Args: `concise`: per contract Levels, Concise: Level 1 register verbatim with Level 2 lines under each row, gap-count line.
 
 ## Process
 1. Extract: Per `AG-NN`, list the six line kinds from spec and siblings. Tag each Verified, Inferred, or Unknown.

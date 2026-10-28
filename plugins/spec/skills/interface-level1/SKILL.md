@@ -9,6 +9,7 @@ Scope: Four fields per exchange, IDs `I-NN`, stable, ordered by provider. Partie
 Cut: Protocol, endpoint, schema, payload examples, auth mechanism, error codes, limits, versioning, retries: Level 2. Person-to-screen use: Product Surface. Store internals: Data Model.
 Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Interfaces`, Cross-Section Rule 13; if absent, standard box-drawing glyphs, one register row per exchange, a risk line under each agent-consumer row.
 Output: Element list, divider, interface register, divider, gaps.
+Args: `concise`: per contract Levels, Concise: interface register, gap-count line.
 
 ## Process
 1. Enumerate: Walk every C4 arrow and every spec sentence where something crosses between two boxes or between a box and an external system. One row per exchange; a two-way arrow with different payloads splits in two. Person-to-screen arrows are cut.
