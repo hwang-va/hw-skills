@@ -3,13 +3,17 @@ name: glossary-level1
 description: "Trigger: /spec:glossary-level1 or glossary, definitions, which word wins request. Outcome: ASCII glossary register, one row per term, from spec and Level 0 harvest, inline."
 ---
 # Glossary-Level1
-Goal: Render spec as Glossary Level 1 (intensional definition, ISO 704:2022: superordinate concept plus delimiting characteristic), ASCII, inline.
-Target: Descriptive spec user points at; infer from full chat context. Glossary Level 0 output supplies terms, flags, `GL-NN`; Data Model Level 1, C4 Level 2, Activity Level 1 the box names Rule 15 binds; a sibling absent = derive from spec, tag Inferred, one gap. Every other output is swept for banned words.
-Scope: Four elements, one row per term. Term: the word the team uses, Level 0 ID kept; a clash keeps the diagrams' word and bans the rest, an ambiguous row takes the diagrams' sense, both Inferred; no diagram = `Unknown`. Definition: one sentence, class plus trait, spec words. Not to Be Confused With: nearest look-alike in the register and the one difference; none = `none`. Owner or Source: the role the spec names, else the document (`spec`, `DM`, `C4`, `Activity`).
-Cut: Binding, synonyms, examples, UI labels, code names, change control, borrowed terms: Level 2. Attributes, rules: Data Model.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Glossary`, Cross-Section Rule 15.
-Output: Element list, divider, register and sweep, divider, gaps.
-Args: `concise`: per contract Levels, Concise: register and sweep, gap-count line.
+- Goal: Render spec as Glossary Level 1 (intensional definition, ISO 704:2022: superordinate concept plus delimiting characteristic), ASCII, inline.
+- Target: Descriptive spec user points at; infer from full chat context. Glossary Level 0 output supplies terms, flags, `GL-NN`; Data Model Level 1, C4 Level 2, Activity Level 1 the box names Rule 15 binds; a sibling absent = derive from spec, tag Inferred, one gap. Every other output is swept for banned words.
+- Scope: Four elements, one row per term.
+  - Term: the word the team uses, Level 0 ID kept; a clash keeps the diagrams' word and bans the rest, an ambiguous row takes the diagrams' sense, both Inferred; no diagram = `Unknown`.
+  - Definition: one sentence, class plus trait, spec words.
+  - Not to Be Confused With: nearest look-alike in the register and the one difference; none = `none`.
+  - Owner or Source: the role the spec names, else the document (`spec`, `DM`, `C4`, `Activity`).
+- Cut: Binding, synonyms, examples, UI labels, code names, change control, borrowed terms: Level 2. Attributes, rules: Data Model.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Glossary`, Cross-Section Rule 15.
+- Output: Element list, divider, register and sweep, divider, gaps.
+- Args: `concise`: per contract Levels, Concise: register and sweep, gap-count line.
 
 ## Process
 1. Terms: Every Level 0 row keeps its ID; every Data Model entity, C4 box, Activity lane or action noun with no row gets one, numbered after the last harvest ID (Rule 15).

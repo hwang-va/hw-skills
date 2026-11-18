@@ -3,13 +3,20 @@ name: acceptance-level2
 description: "Trigger: /spec:acceptance-level2 or edge case, example data, or test binding request. Outcome: ASCII Level 2 lines inside each Level 1 acceptance card, from spec and Level 1, inline."
 ---
 # Acceptance-Level2
-Goal: Render spec as Acceptance Criteria Level 2 (Specification by Example, Adzic 2011), ASCII, inline.
-Target: Descriptive spec user points at; infer from full chat context. Acceptance Level 1 output supplies the cards, required; absent = run it first. Activity Level 1 supplies the decision branches; Data Model Level 2 the attributes; Interfaces Level 1 the `I-NN`; NFR Level 1 the targets with a rate. A sibling absent = derive from spec, tag Inferred, one gap.
-Scope: Six elements. Edge: one case per card, a partition or a boundary value (ISO/IEC/IEEE 29119-4), arrow to the result. Data: one key example, column headers `│` values, spec words. Threshold: the number in the Data expected column, else `Unknown` plus its `GL-NN` or `DEC-NN`. Test: manual or automated and the path. Binds: `I-NN ▶ ◆ Entity.attr`. Load: one line per `NF-NN` with a rate. Out of scope: by ID, one line.
-Cut: New cards, Given, When, or Then lines, or IDs: a miss is a Level 1 gap.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Acceptance Criteria`, Cross-Section Rules 6 to 7.
-Output: Element list, divider, cards, divider, gaps.
-Args: `concise`: per contract Levels, Concise: cards, gap-count line.
+- Goal: Render spec as Acceptance Criteria Level 2 (Specification by Example, Adzic 2011), ASCII, inline.
+- Target: Descriptive spec user points at; infer from full chat context. Acceptance Level 1 output supplies the cards, required; absent = run it first. Activity Level 1 supplies the decision branches; Data Model Level 2 the attributes; Interfaces Level 1 the `I-NN`; NFR Level 1 the targets with a rate. A sibling absent = derive from spec, tag Inferred, one gap.
+- Scope: Six elements.
+  - Edge: one case per card, a partition or a boundary value (ISO/IEC/IEEE 29119-4), arrow to the result.
+  - Data: one key example, column headers `│` values, spec words.
+  - Threshold: the number in the Data expected column, else `Unknown` plus its `GL-NN` or `DEC-NN`.
+  - Test: manual or automated and the path.
+  - Binds: `I-NN ▶ ◆ Entity.attr`.
+  - Load: one line per `NF-NN` with a rate.
+  - Out of scope: by ID, one line.
+- Cut: New cards, Given, When, or Then lines, or IDs: a miss is a Level 1 gap.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Acceptance Criteria`, Cross-Section Rules 6 to 7.
+- Output: Element list, divider, cards, divider, gaps.
+- Args: `concise`: per contract Levels, Concise: cards, gap-count line.
 
 ## Process
 1. Extract: Per card, the branch or boundary its Then hides; each Activity branch to one Edge line. Example row in the tester's columns; a value the spec lacks = placeholder, Inferred.

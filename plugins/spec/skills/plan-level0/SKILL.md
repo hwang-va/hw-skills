@@ -3,13 +3,16 @@ name: plan-level0
 description: "Trigger: /spec:plan-level0 or which sections, plan spec, pick skills request. Outcome: ASCII run plan: Skip/L1/L2 per Catalog section, risk reason, run order; inline and plan.md."
 ---
 # Plan-Level0
-Goal: Plan spec sections through risk-driven model (Fairbanks 2010, Just Enough Software Architecture): depth in proportion to failure risk for this goal.
-Target: Spec folder user points at (`brief.md`, `research.md`, `raw\`); infer from full chat context. Two questions first, one line each: spec goal; reader, stakeholder or engineer.
-Scope: One row per Catalog section. Depth: `Skip`, `L1`, `L2`; reader sets default (stakeholder L1, engineer L2); risk moves row up or down. Reason: one phrase naming risk in this spec, or Catalog trigger that did not fire. Order: run position.
-Cut: Rendering sections, running skills, numeric risk scores, effort estimates: section skills own output; user runs one skill per turn.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, Catalog (Trigger column, AI Sections); each skill's `Target:` line for inputs.
-Output: Goal and reader line, divider, run plan, divider, gaps.
-Args: `concise`: fewest sections that still serve the goal: `Always` rows plus one section per goal heading or named risk; depth `L1` only, `L2` only where money moves, data leaves, or an action is irreversible; one behaviour diagram, Sequence or Activity, not both; AI Sections `Skip` when the brief names no AI actor, even where the Catalog says `Always`, reason `no AI actor`; every other row `Skip`, reason `concise`; rule-check line ends `concise`; file `plan-concise.md`.
+- Goal: Plan spec sections through risk-driven model (Fairbanks 2010, Just Enough Software Architecture): depth in proportion to failure risk for this goal.
+- Target: Spec folder user points at (`brief.md`, `research.md`, `raw\`); infer from full chat context. Two questions first, one line each: spec goal; reader, stakeholder or engineer.
+- Scope: One row per Catalog section.
+  - Depth: `Skip`, `L1`, `L2`; reader sets default (stakeholder L1, engineer L2); risk moves row up or down.
+  - Reason: one phrase naming risk in this spec, or Catalog trigger that did not fire.
+  - Order: run position.
+- Cut: Rendering sections, running skills, numeric risk scores, effort estimates: section skills own output; user runs one skill per turn.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, Catalog (Trigger column, AI Sections); each skill's `Target:` line for inputs.
+- Output: Goal and reader line, divider, run plan, divider, gaps.
+- Args: `concise`: fewest sections that still serve the goal: `Always` rows plus one section per goal heading or named risk; depth `L1` only, `L2` only where money moves, data leaves, or an action is irreversible; one behaviour diagram, Sequence or Activity, not both; AI Sections `Skip` when the brief names no AI actor, even where the Catalog says `Always`, reason `no AI actor`; every other row `Skip`, reason `concise`; rule-check line ends `concise`; file `plan-concise.md`.
 
 ## Process
 1. Ask: Goal, reader; wait for both. Answer already in chat = skip that question.

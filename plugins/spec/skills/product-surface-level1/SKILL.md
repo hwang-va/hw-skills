@@ -3,12 +3,16 @@ name: product-surface-level1
 description: "Trigger: /spec:product-surface-level1 or screen inventory request. Outcome: ASCII screen inventory and screen map from spec, inline."
 ---
 # Product-Surface-Level1
-Goal: Render spec as Product Surface Level 1, Screen Inventory and Map (Garrett visual vocabulary for information architecture), ASCII, inline.
-Target: Descriptive spec user points at; infer from full chat context. C4 Level 1 and Activity Level 1 output, if present, are additional input; Knowledge Level 1 output, if present, supplies the search and library screens its person-path column names.
-Scope: Four element types only. Screens: every screen, pane, or tool surface named, one-line purpose stating the job the user does there; a tool surface is the tool set an external AI host (Claude, ChatGPT over MCP) renders on the product's behalf. Components: what sits on each screen, named from the vocabulary: AI component, table, list, form, chart, detail panel, control, tool. Entry and Exit: how the user arrives at each screen and where they go next, verb on the arrow. Surface Type: where the screen lives: web app, mobile app, CLI, chat pane, email, message, document, or host chat; a CLI command is a screen whose arguments are the form and whose output is the table or detail panel.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## Product Surface`; if absent, standard box-drawing glyphs.
-Output: Element list, divider, diagram, divider, gaps.
-Args: `concise`: per contract Levels, Concise: diagram, gap-count line.
+- Goal: Render spec as Product Surface Level 1, Screen Inventory and Map (Garrett visual vocabulary for information architecture), ASCII, inline.
+- Target: Descriptive spec user points at; infer from full chat context. C4 Level 1 and Activity Level 1 output, if present, are additional input; Knowledge Level 1 output, if present, supplies the search and library screens its person-path column names.
+- Scope: Four element types only.
+  - Screens: every screen, pane, or tool surface named, one-line purpose stating the job the user does there; a tool surface is the tool set an external AI host (Claude, ChatGPT over MCP) renders on the product's behalf.
+  - Components: what sits on each screen, named from the vocabulary: AI component, table, list, form, chart, detail panel, control, tool.
+  - Entry and Exit: how the user arrives at each screen and where they go next, verb on the arrow.
+  - Surface Type: where the screen lives: web app, mobile app, CLI, chat pane, email, message, document, or host chat; a CLI command is a screen whose arguments are the form and whose output is the table or detail panel.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## Product Surface`; if absent, standard box-drawing glyphs.
+- Output: Element list, divider, diagram, divider, gaps.
+- Args: `concise`: per contract Levels, Concise: diagram, gap-count line.
 
 ## Process
 1. Extract: From spec, list Screens + purpose, Components per screen, Entry and Exit, Surface Type. Tag each Verified (stated) or Inferred (implied).

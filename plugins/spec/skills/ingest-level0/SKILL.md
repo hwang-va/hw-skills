@@ -3,12 +3,16 @@ name: ingest-level0
 description: "Trigger: /spec:ingest-level0 or ingest, gather sources, spec folder request, more info for existing folder. Outcome: spec folder: verbatim brief, raw sources, graded research, provenance README, on disk."
 ---
 # Ingest-Level0
-Goal: Build spec folder through intelligence cycle (JP 2-0); claims graded per Admiralty Code (STANAG 2511), written as house tags.
-Target: Idea, link, file, or repo introduction user points at; infer from full chat context. Folder: `<parent>\<name>\`; parent as user names, else `specs\`; name kebab-case, broad part first (`acme-chat-pane`).
-Scope: Four files. `brief.md`: source text verbatim. `raw\`: what user handed over, as published. `research.md`: collected claims, one tag and one link each, Unknowns last. `README.md`: layout, provenance per source (URL, version, author, method, fetch date), section skills' target = `brief.md` + `research.md`.
-Cut: Section rendering, term harvest, definitions, recommendations, whole web pages in `raw\`: section skills own the first four; pages bloat and raise copyright.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, Catalog.
-Output: Files written, divider, coverage table, divider, Unknowns.
+- Goal: Build spec folder through intelligence cycle (JP 2-0); claims graded per Admiralty Code (STANAG 2511), written as house tags.
+- Target: Idea, link, file, or repo introduction user points at; infer from full chat context. Folder: `<parent>\<name>\`; parent as user names, else `specs\`; name kebab-case, broad part first (`acme-chat-pane`).
+- Scope: Four files.
+  - `brief.md`: source text verbatim.
+  - `raw\`: what user handed over, as published.
+  - `research.md`: collected claims, one tag and one link each, Unknowns last.
+  - `README.md`: layout, provenance per source (URL, version, author, method, fetch date), section skills' target = `brief.md` + `research.md`.
+- Cut: Section rendering, term harvest, definitions, recommendations, whole web pages in `raw\`: section skills own the first four; pages bloat and raise copyright.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, Catalog.
+- Output: Files written, divider, coverage table, divider, Unknowns.
 
 ## Process
 1. Direction: Read source; mark each Catalog section `covered`, `thin`, or `n/a`; thin sections are the collection requirements. Bare idea, no text: `brief.md` = user's words verbatim.

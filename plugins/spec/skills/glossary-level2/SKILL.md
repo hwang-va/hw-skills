@@ -3,13 +3,19 @@ name: glossary-level2
 description: "Trigger: /spec:glossary-level2 or term binding, synonyms, UI label, code name request. Outcome: ASCII Level 2 detail lines under each Level 1 glossary row, from Level 1 and Data Model, inline."
 ---
 # Glossary-Level2
-Goal: Render spec as Glossary Level 2 (Ubiquitous Language bound to the model, Evans 2003), ASCII, inline.
-Target: Descriptive spec user points at; infer from full chat context. Glossary Level 1 output required: rows, IDs, winners, owners; absent = stop and name it. Data Model Level 2 supplies the entity or attribute a term binds to and its spelling; C4 Level 2 the container or person; Product Surface Level 1 the screen; a sibling absent = derive from spec, tag Inferred, one gap.
-Scope: Five refinements per Level 1 row. Binding: `◆ Entity` or `◆ Entity.attr` from Data Model Level 2, `C4: name` for a container or person, else `none`. Synonyms: allowed, then banned, Level 1 losers first (ISO 1087 admitted and deprecated terms). Examples: one instance, one near miss, spec words. Usage: UI label with screen number; code name in Data Model spelling, else snake_case tagged Inferred (ISO/IEC 11179-5 naming). Change: Level 1 owner and what moves: entity, box, or label. Borrowed: client or regulator terms with source, once per block; none = say so.
-Cut: New terms, definitions, winners: a miss is a Level 1 gap. Attribute types, keys, states: Data Model. Screen content: Product Surface. Sweep: Level 1, carried.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Glossary`, Cross-Section Rule 15.
-Output: Element list, divider, register with detail lines, divider, gaps.
-Args: `concise`: per contract Levels, Concise: register with detail lines, gap-count line.
+- Goal: Render spec as Glossary Level 2 (Ubiquitous Language bound to the model, Evans 2003), ASCII, inline.
+- Target: Descriptive spec user points at; infer from full chat context. Glossary Level 1 output required: rows, IDs, winners, owners; absent = stop and name it. Data Model Level 2 supplies the entity or attribute a term binds to and its spelling; C4 Level 2 the container or person; Product Surface Level 1 the screen; a sibling absent = derive from spec, tag Inferred, one gap.
+- Scope: Five refinements per Level 1 row.
+  - Binding: `◆ Entity` or `◆ Entity.attr` from Data Model Level 2, `C4: name` for a container or person, else `none`.
+  - Synonyms: allowed, then banned, Level 1 losers first (ISO 1087 admitted and deprecated terms).
+  - Examples: one instance, one near miss, spec words.
+  - Usage: UI label with screen number; code name in Data Model spelling, else snake_case tagged Inferred (ISO/IEC 11179-5 naming).
+  - Change: Level 1 owner and what moves: entity, box, or label.
+  - Borrowed: client or regulator terms with source, once per block; none = say so.
+- Cut: New terms, definitions, winners: a miss is a Level 1 gap. Attribute types, keys, states: Data Model. Screen content: Product Surface. Sweep: Level 1, carried.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Glossary`, Cross-Section Rule 15.
+- Output: Element list, divider, register with detail lines, divider, gaps.
+- Args: `concise`: per contract Levels, Concise: register with detail lines, gap-count line.
 
 ## Process
 1. Bind: Per term, the one thing it names in Data Model Level 2, else C4 Level 2, else `none`; `none` on a box term is a missing entity (Rule 15), one gap.

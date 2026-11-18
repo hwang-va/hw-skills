@@ -3,12 +3,20 @@ name: operation-level2
 description: "Trigger: /spec:operation-level2 or cost formula, degrade order, trace fields, alert threshold, canary, rollback, incident request. Outcome: ASCII Level 2 line block under each Level 1 operation row, from Level 1, Evaluation, and NFR, inline."
 ---
 # Operation-Level2
-Goal: Render Operation Level 2, detail lines per agent row (Google SRE practice for alerting on symptoms, canarying, and incident management; FinOps unit economics for the cost formula and alarm share; OpenTelemetry GenAI semantic conventions as the mapping target for trace fields), ASCII, inline.
-Target: Operation Level 1 output user points at; infer from full chat context. Non-Functional Requirements Level 2 supplies limit values and ceilings; Evaluation Level 1 supplies the `EV-NN` and bar that gate a release; Risks Level 1 supplies the `RK-NN` an incident maps to; Data Model Level 2 supplies the run entity; Autonomy Level 1 supplies the kill switch owner; `${CLAUDE_PLUGIN_ROOT}/references/agent-capabilities.md` supplies capability names; missing sibling = `Unknown`, never invented.
-Scope: Six line kinds per `OP-NN`, plus one incident block per product. Cost formula: tokens in and out, tool calls, model class, price, per run; alarm at a share of the monthly cap, `Unknown` when the spec is silent. Limits and degrade: values per user tier matched to `NF-NN`; degrade order of smaller model, fewer tools, shorter context, refuse, with the user text at each step. Trace: fields per run in plain words, run id, agent, trigger, model and prompt version, tool calls, tokens, cost, latency, outcome, approvals, with retention; one note that the engineer maps them to the OpenTelemetry GenAI names. Alerts: metric, threshold, window, severity, who is paged. Release: `EV-NN` run against the bar, canary share and duration, promotion rule, rollback trigger and time. Incident: once per product, severity scale, on-call, user communication, review feeding Risks; per agent only the severity its failure maps to and the `RK-NN`. Capability: names from the reference only. Cut: dashboard layout, vendor names, runbook text.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## Operation`, `### Level 2`; if absent, standard box-drawing glyphs.
-Output: Element list, divider, Level 1 register verbatim with Level 2 lines under each row, divider, incident block, divider, gaps.
-Args: `concise`: per contract Levels, Concise: Level 1 register verbatim with Level 2 lines under each row, divider, incident block, gap-count line.
+- Goal: Render Operation Level 2, detail lines per agent row (Google SRE practice for alerting on symptoms, canarying, and incident management; FinOps unit economics for the cost formula and alarm share; OpenTelemetry GenAI semantic conventions as the mapping target for trace fields), ASCII, inline.
+- Target: Operation Level 1 output user points at; infer from full chat context. Non-Functional Requirements Level 2 supplies limit values and ceilings; Evaluation Level 1 supplies the `EV-NN` and bar that gate a release; Risks Level 1 supplies the `RK-NN` an incident maps to; Data Model Level 2 supplies the run entity; Autonomy Level 1 supplies the kill switch owner; `${CLAUDE_PLUGIN_ROOT}/references/agent-capabilities.md` supplies capability names; missing sibling = `Unknown`, never invented.
+- Scope: Six line kinds per `OP-NN`, plus one incident block per product.
+  - Cost formula: tokens in and out, tool calls, model class, price, per run; alarm at a share of the monthly cap, `Unknown` when the spec is silent.
+  - Limits and degrade: values per user tier matched to `NF-NN`; degrade order of smaller model, fewer tools, shorter context, refuse, with the user text at each step.
+  - Trace: fields per run in plain words, run id, agent, trigger, model and prompt version, tool calls, tokens, cost, latency, outcome, approvals, with retention; one note that the engineer maps them to the OpenTelemetry GenAI names.
+  - Alerts: metric, threshold, window, severity, who is paged.
+  - Release: `EV-NN` run against the bar, canary share and duration, promotion rule, rollback trigger and time.
+  - Incident: once per product, severity scale, on-call, user communication, review feeding Risks; per agent only the severity its failure maps to and the `RK-NN`.
+  - Capability: names from the reference only.
+  - Cut: dashboard layout, vendor names, runbook text.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## Operation`, `### Level 2`; if absent, standard box-drawing glyphs.
+- Output: Element list, divider, Level 1 register verbatim with Level 2 lines under each row, divider, incident block, divider, gaps.
+- Args: `concise`: per contract Levels, Concise: Level 1 register verbatim with Level 2 lines under each row, divider, incident block, gap-count line.
 
 ## Process
 1. Extract: Per `OP-NN`, list the six line kinds; once, the incident block. Tag each Verified, Inferred, or Unknown.

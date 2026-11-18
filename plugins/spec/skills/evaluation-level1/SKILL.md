@@ -3,13 +3,17 @@ name: evaluation-level1
 description: "Trigger: /spec:evaluation-level1 or evaluation, evals, quality bar request. Outcome: ASCII evaluation register, one row per AI output and dimension, from spec and Autonomy, inline."
 ---
 # Evaluation-Level1
-Goal: Render spec as Evaluation Level 1 (Your AI Product Needs Evals, Husain 2024: a row is a test the domain owner can fail), ASCII, inline.
-Target: Spec the user points at. Autonomy Level 1 output supplies the AI actions at T1 or above and the checkpoint person; absent = derive from spec, tag Inferred, one gap. Grounding Level 1 supplies the `GR-NN` each groundedness row tests; Acceptance Level 1 the deterministic `FR-NN` already carded; NFR Level 1 any stated bar.
-Scope: Evaluated Outputs: `EV-NN` per AI output at T1 or above and per dimension, `AU-NN` in Output. Dimensions: accuracy, groundedness, format, refusal, one row each. Method: Husain's three levels, the cheapest check that catches the failure; LLM judge only for free text with no reference. Bar and Signer: threshold to launch from spec or NFR, else `Unknown`; groundedness and format 100 %, Inferred; Zero the count that must be 0; one named signer, since a bar with no signer gates nothing (Rule 8).
-Cut: Dataset, slices, rubric, judge calibration, cadence, promotion, gate, drift, model change, budget: Level 2. Deterministic tests: Acceptance.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Evaluation`, Cross-Section Rules 6, 8, 11.
-Output: Element list, divider, register, divider, gaps.
-Args: `concise`: per contract Levels, Concise: register, gap-count line.
+- Goal: Render spec as Evaluation Level 1 (Your AI Product Needs Evals, Husain 2024: a row is a test the domain owner can fail), ASCII, inline.
+- Target: Spec the user points at. Autonomy Level 1 output supplies the AI actions at T1 or above and the checkpoint person; absent = derive from spec, tag Inferred, one gap. Grounding Level 1 supplies the `GR-NN` each groundedness row tests; Acceptance Level 1 the deterministic `FR-NN` already carded; NFR Level 1 any stated bar.
+- Scope:
+  - Evaluated Outputs: `EV-NN` per AI output at T1 or above and per dimension, `AU-NN` in Output.
+  - Dimensions: accuracy, groundedness, format, refusal, one row each.
+  - Method: Husain's three levels, the cheapest check that catches the failure; LLM judge only for free text with no reference.
+  - Bar and Signer: threshold to launch from spec or NFR, else `Unknown`; groundedness and format 100 %, Inferred; Zero the count that must be 0; one named signer, since a bar with no signer gates nothing (Rule 8).
+- Cut: Dataset, slices, rubric, judge calibration, cadence, promotion, gate, drift, model change, budget: Level 2. Deterministic tests: Acceptance.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Evaluation`, Cross-Section Rules 6, 8, 11.
+- Output: Element list, divider, register, divider, gaps.
+- Args: `concise`: per contract Levels, Concise: register, gap-count line.
 
 ## Process
 1. Outputs: One per Autonomy action at T1 or above whose result someone acts on; store, serve, rule-compare, and send actions go on one coverage line with their `AC-NN` (Rule 6).

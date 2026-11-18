@@ -3,12 +3,19 @@ name: agents-level2
 description: "Trigger: /spec:agents-level2 or agent tools, memory, cost cap, handoff, orchestration pattern request. Outcome: ASCII Level 2 line block under each Level 1 agent row, from Level 1, Interfaces, and the capabilities reference, inline."
 ---
 # Agents-Level2
-Goal: Render Agents Level 2, detail lines per agent (Azure Architecture Center "AI Agent Orchestration Patterns" for the handoff vocabulary; CSA "Agentic Universe" for persistence and tool scope), ASCII, inline.
-Target: Agents Level 1 output user points at; infer from full chat context. Interfaces Level 1 supplies `I-NN` tool rows; Data Model Level 2 supplies entities for inputs, outputs, and memory; Autonomy Level 1 supplies tiers and kill switch; Knowledge Level 1 supplies corpora an agent loads; Product Surface Level 1 supplies delivery screens; `${CLAUDE_PLUGIN_ROOT}/references/agent-capabilities.md` supplies capability names; missing sibling = `Unknown`, never invented.
-Scope: Six line kinds per `AG-NN`. Inputs and outputs: `◆ Entity` each side. Trigger detail: schedule expression, watched event or entity, debounce, what stops a background agent. Model and cost cap: model class, dollars per run and per day; tokens only when the spec gives no price. Tools and memory: `I-NN` pointers; what persists across runs, its entity, retention. Handoff and failure: arrows to other agents with the pattern word, once per product: single, sequential, concurrent, group chat, handoff, magentic; what the user sees when the agent fails or is late, who is paged. Capability: names from the reference only, `Unknown` plus one gap when the reference lacks it. Cut: prompts, system text, evaluation bars, risk rows.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## Agents`, `### Level 2`; if absent, standard box-drawing glyphs.
-Output: Element list, divider, Level 1 register verbatim with Level 2 lines under each row, divider, gaps.
-Args: `concise`: per contract Levels, Concise: Level 1 register verbatim with Level 2 lines under each row, gap-count line.
+- Goal: Render Agents Level 2, detail lines per agent (Azure Architecture Center "AI Agent Orchestration Patterns" for the handoff vocabulary; CSA "Agentic Universe" for persistence and tool scope), ASCII, inline.
+- Target: Agents Level 1 output user points at; infer from full chat context. Interfaces Level 1 supplies `I-NN` tool rows; Data Model Level 2 supplies entities for inputs, outputs, and memory; Autonomy Level 1 supplies tiers and kill switch; Knowledge Level 1 supplies corpora an agent loads; Product Surface Level 1 supplies delivery screens; `${CLAUDE_PLUGIN_ROOT}/references/agent-capabilities.md` supplies capability names; missing sibling = `Unknown`, never invented.
+- Scope: Six line kinds per `AG-NN`.
+  - Inputs and outputs: `◆ Entity` each side.
+  - Trigger detail: schedule expression, watched event or entity, debounce, what stops a background agent.
+  - Model and cost cap: model class, dollars per run and per day; tokens only when the spec gives no price.
+  - Tools and memory: `I-NN` pointers; what persists across runs, its entity, retention.
+  - Handoff and failure: arrows to other agents with the pattern word, once per product: single, sequential, concurrent, group chat, handoff, magentic; what the user sees when the agent fails or is late, who is paged.
+  - Capability: names from the reference only, `Unknown` plus one gap when the reference lacks it.
+  - Cut: prompts, system text, evaluation bars, risk rows.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## Agents`, `### Level 2`; if absent, standard box-drawing glyphs.
+- Output: Element list, divider, Level 1 register verbatim with Level 2 lines under each row, divider, gaps.
+- Args: `concise`: per contract Levels, Concise: Level 1 register verbatim with Level 2 lines under each row, gap-count line.
 
 ## Process
 1. Extract: Per `AG-NN`, list the six line kinds from spec and siblings. Tag each Verified, Inferred, or Unknown.

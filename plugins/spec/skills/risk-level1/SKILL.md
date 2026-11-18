@@ -3,13 +3,17 @@ name: risk-level1
 description: "Trigger: /spec:risk-level1 or risks, failure modes, what could go wrong request. Outcome: ASCII risk register, one row per failure mode, from spec and Autonomy, inline."
 ---
 # Risk-Level1
-Goal: Render spec as Risks and Failure Modes Level 1 (Failure Modes and Effects Analysis, IEC 60812:2018), ASCII, inline.
-Target: Descriptive spec user points at; infer from full chat context. Autonomy Level 1 supplies the T3 and T4 actions; absent = derive from spec, tag Inferred, one gap. Grounding Level 1 supplies the `GR-NN` rows; Evaluation, NFR, Data Access, Acceptance Level 1 the guards by ID; C4 Level 1 the person hurt.
-Scope: Four elements. Failure Modes: `RK-NN` per catalogue mode (hallucination, stale data, prompt injection, wrong tool call, silent failure, cost runaway) per `AU-NN` at T3 or T4 and per `GR-NN`. Effect: the FMEA end effect on a C4 person. Severity: high, medium, low. Guard: a bow-tie barrier, prevention or detection, a sibling Level 1 row by ID, plus owner.
-Cut: Cause, OWASP category, blast radius, RPN, detection, fallback, residual: Level 2. Deterministic defects: Acceptance.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Risks and Failure Modes`, Cross-Section Rules 9, 11, 13.
-Output: Element list, divider, register, divider, gaps.
-Args: `concise`: per contract Levels, Concise: register, gap-count line.
+- Goal: Render spec as Risks and Failure Modes Level 1 (Failure Modes and Effects Analysis, IEC 60812:2018), ASCII, inline.
+- Target: Descriptive spec user points at; infer from full chat context. Autonomy Level 1 supplies the T3 and T4 actions; absent = derive from spec, tag Inferred, one gap. Grounding Level 1 supplies the `GR-NN` rows; Evaluation, NFR, Data Access, Acceptance Level 1 the guards by ID; C4 Level 1 the person hurt.
+- Scope: Four elements.
+  - Failure Modes: `RK-NN` per catalogue mode (hallucination, stale data, prompt injection, wrong tool call, silent failure, cost runaway) per `AU-NN` at T3 or T4 and per `GR-NN`.
+  - Effect: the FMEA end effect on a C4 person.
+  - Severity: high, medium, low.
+  - Guard: a bow-tie barrier, prevention or detection, a sibling Level 1 row by ID, plus owner.
+- Cut: Cause, OWASP category, blast radius, RPN, detection, fallback, residual: Level 2. Deterministic defects: Acceptance.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Risks and Failure Modes`, Cross-Section Rules 9, 11, 13.
+- Output: Element list, divider, register, divider, gaps.
+- Args: `concise`: per contract Levels, Concise: register, gap-count line.
 
 ## Process
 1. Modes: Walk the catalogue against every `AU-NN` at T3 or T4 and every `GR-NN`. One row per mode that applies; a mode that cannot apply gets a reason on the Coverage line (no tool granted = no wrong tool call).

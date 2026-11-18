@@ -3,12 +3,15 @@ name: glossary-level0
 description: "Trigger: /spec:glossary-level0 or term harvest request. Outcome: ASCII term list, one flagged row per noun phrase, from raw spec, inline."
 ---
 # Glossary-Level0
-Goal: Render spec as Glossary Level 0, term harvest (noun-phrase analysis, Abbott 1983, CACM 26(11)), ASCII, inline.
-Target: Descriptive spec user points at; infer from full chat context. Raw prose only, no sibling output: the words come from the author, not from a box a later skill drew.
-Scope: Three fields per row. Term: the noun phrase as the spec writes it, singular, spelling corrected; one row when it names an actor, system, store, artifact, data item, event, or domain concept; jargon kept. Flag: `clear` (one referent, one use), `ambiguous` (two senses or an open referent), `clash` (two or more words for one thing, joined with `~` in one row). ID: `GL-NN` in order of first appearance; Level 1 and 2 keep it, so a renumber breaks every citation.
-Cut: Definitions, look-alikes, owners, the winner among clashing words, bindings, synonym lists, examples, usage rules, change control: Level 1 and 2 material.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Glossary`, Cross-Section Rule 15.
-Output: Element list, divider, term list, divider, gaps.
+- Goal: Render spec as Glossary Level 0, term harvest (noun-phrase analysis, Abbott 1983, CACM 26(11)), ASCII, inline.
+- Target: Descriptive spec user points at; infer from full chat context. Raw prose only, no sibling output: the words come from the author, not from a box a later skill drew.
+- Scope: Three fields per row.
+  - Term: the noun phrase as the spec writes it, singular, spelling corrected; one row when it names an actor, system, store, artifact, data item, event, or domain concept; jargon kept.
+  - Flag: `clear` (one referent, one use), `ambiguous` (two senses or an open referent), `clash` (two or more words for one thing, joined with `~` in one row).
+  - ID: `GL-NN` in order of first appearance; Level 1 and 2 keep it, so a renumber breaks every citation.
+- Cut: Definitions, look-alikes, owners, the winner among clashing words, bindings, synonym lists, examples, usage rules, change control: Level 1 and 2 material.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Glossary`, Cross-Section Rule 15.
+- Output: Element list, divider, term list, divider, gaps.
 
 ## Process
 1. Harvest: Walk the spec sentence by sentence; lift every noun phrase in Scope in its own words, never renamed, never defined. An example after e.g. or such as stays under its parent unless ambiguous on its own. A generic noun with no referent (data, list) is dropped and the drop named in the Elements prose.

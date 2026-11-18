@@ -3,13 +3,17 @@ name: decision-log-level1
 description: "Trigger: /spec:decision-log-level1 or decision log, open questions request; runs last. Outcome: ASCII decision register, one row per Unknown question, from spec and every sibling gap list, inline."
 ---
 # Decision-Log-Level1
-Goal: Render the open questions as Decision Log Level 1 (Architecture Decision Records, Nygard 2011), ASCII, inline. Runs last.
-Target: Descriptive spec user points at; infer from full chat context. Sibling `output-*.md` gap lists supply the `Unknown` items; spec and chat the answers, owners, dates; Evaluation Level 1 the set a spike runs against. No sibling = derive questions from the spec's silences, tag Inferred, one gap.
-Scope: Four elements. Decision: `DEC-NN`, one question per line, primary source (row ID or output code) and item count; every `Unknown` item under exactly one row (Rule 14). Status: open, spike, proposed, decided, superseded; a spike (Extreme Programming, Beck 1999) waits on the model, closes by an Evaluation run, not a meeting. Answer: the chosen option, one line; none = `·`. Owner and Date: one approver (DACI), dated; for a spike, runner and by-when; absent = `Unknown`.
-Cut: Context, options, consequences by ID, supersession, revisit trigger, notes: Level 2. Inferred-only items: their own gap lists.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Decision Log`, Cross-Section Rule 14.
-Output: Element list, divider, register, divider, gaps.
-Args: `concise`: per contract Levels, Concise: register, gap-count line.
+- Goal: Render the open questions as Decision Log Level 1 (Architecture Decision Records, Nygard 2011), ASCII, inline. Runs last.
+- Target: Descriptive spec user points at; infer from full chat context. Sibling `output-*.md` gap lists supply the `Unknown` items; spec and chat the answers, owners, dates; Evaluation Level 1 the set a spike runs against. No sibling = derive questions from the spec's silences, tag Inferred, one gap.
+- Scope: Four elements.
+  - Decision: `DEC-NN`, one question per line, primary source (row ID or output code) and item count; every `Unknown` item under exactly one row (Rule 14).
+  - Status: open, spike, proposed, decided, superseded; a spike (Extreme Programming, Beck 1999) waits on the model, closes by an Evaluation run, not a meeting.
+  - Answer: the chosen option, one line; none = `·`.
+  - Owner and Date: one approver (DACI), dated; for a spike, runner and by-when; absent = `Unknown`.
+- Cut: Context, options, consequences by ID, supersession, revisit trigger, notes: Level 2. Inferred-only items: their own gap lists.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Decision Log`, Cross-Section Rule 14.
+- Output: Element list, divider, register, divider, gaps.
+- Args: `concise`: per contract Levels, Concise: register, gap-count line.
 
 ## Process
 1. Harvest: Under every sibling `## Gaps`, each numbered item carrying `Unknown` is one item keyed output code and number; count them.

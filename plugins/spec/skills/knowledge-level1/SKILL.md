@@ -3,12 +3,17 @@ name: knowledge-level1
 description: "Trigger: /spec:knowledge-level1 or knowledge base, corpus, retrieval, what the agent can search request. Outcome: ASCII corpus register and layer diagram, one row per corpus with layer, store, origin, search, consumer path, feedback, from spec and Data Model, inline."
 ---
 # Knowledge-Level1
-Goal: Render spec as Knowledge Level 1, Corpus Register and Layer Diagram (DIKW ladder, Ackoff, for the raw, catalog, distilled layers; retrieval-augmented generation for the search kinds), ASCII, inline.
-Target: Descriptive spec user points at; infer from full chat context. Data Model Level 1 output, if present, supplies entity names for catalog and distilled rows; Agents Level 1, if present, supplies `AG-NN` for feedback arrows and agent consumers; Grounding Level 1, if present, supplies the sources that must appear as corpora; Interfaces and Product Surface Level 1, if present, supply tool rows and screens for the consumer columns; else infer, tag Inferred.
-Scope: Four element types only. Corpora: every searchable body named, `KN-NN`, layer one of raw, catalog, distilled; store kind one of local file system, object store, relational table, vector index, never a vendor name; a folder of Markdown or JSONL on the user's machine is a raw corpus; a decision, memo, or review table is a corpus as soon as the spec says it feeds back. Origin and Unit: origin one of internal file, vendor feed, agent web search, human note, product decision; unit one of file, row, chunk, unit. Search and Consumer: search one of keyed, full-text, semantic, hybrid, agentic (the agent loops list, read, grep; a search kind, never a store); agent path as an `I-NN` tool or `load whole`, person path as a screen, `none` when a consumer has no path. Feedback: who writes new knowledge, into which layer, on what trigger. Cut: file format of the unit, schema, chunking, embedding model, search recipe order, context budget, promotion approval, freshness. Level 2 material.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## Knowledge`; if absent, standard box-drawing glyphs.
-Output: Element list, divider, register, divider, layer diagram, divider, gaps.
-Args: `concise`: per contract Levels, Concise: register, divider, layer diagram, gap-count line.
+- Goal: Render spec as Knowledge Level 1, Corpus Register and Layer Diagram (DIKW ladder, Ackoff, for the raw, catalog, distilled layers; retrieval-augmented generation for the search kinds), ASCII, inline.
+- Target: Descriptive spec user points at; infer from full chat context. Data Model Level 1 output, if present, supplies entity names for catalog and distilled rows; Agents Level 1, if present, supplies `AG-NN` for feedback arrows and agent consumers; Grounding Level 1, if present, supplies the sources that must appear as corpora; Interfaces and Product Surface Level 1, if present, supply tool rows and screens for the consumer columns; else infer, tag Inferred.
+- Scope: Four element types only.
+  - Corpora: every searchable body named, `KN-NN`, layer one of raw, catalog, distilled; store kind one of local file system, object store, relational table, vector index, never a vendor name; a folder of Markdown or JSONL on the user's machine is a raw corpus; a decision, memo, or review table is a corpus as soon as the spec says it feeds back.
+  - Origin and Unit: origin one of internal file, vendor feed, agent web search, human note, product decision; unit one of file, row, chunk, unit.
+  - Search and Consumer: search one of keyed, full-text, semantic, hybrid, agentic (the agent loops list, read, grep; a search kind, never a store); agent path as an `I-NN` tool or `load whole`, person path as a screen, `none` when a consumer has no path.
+  - Feedback: who writes new knowledge, into which layer, on what trigger.
+  - Cut: file format of the unit, schema, chunking, embedding model, search recipe order, context budget, promotion approval, freshness. Level 2 material.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## Knowledge`; if absent, standard box-drawing glyphs.
+- Output: Element list, divider, register, divider, layer diagram, divider, gaps.
+- Args: `concise`: per contract Levels, Concise: register, divider, layer diagram, gap-count line.
 
 ## Process
 1. Extract: From spec and siblings, list every body of content an agent or a person searches, loads, or writes. Tag each Verified, Inferred, or Unknown.

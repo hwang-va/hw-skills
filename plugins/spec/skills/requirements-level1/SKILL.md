@@ -3,13 +3,17 @@ name: requirements-level1
 description: "Trigger: /spec:requirements-level1 or functional requirements, shall statements request. Outcome: ASCII requirement register, one EARS row per requirement, from spec and diagrams, inline."
 ---
 # Requirements-Level1
-Goal: Render spec as Functional Requirements Level 1 (EARS, Mavin et al. 2009: one sentence, one pattern, system as subject), ASCII, inline.
-Target: Descriptive spec user points at; infer from full chat context. Purpose Level 1 output supplies `PU-NN`; Activity Level 1 actions and exceptions; Product Surface Level 1 screens; Autonomy Level 1 actions; Interfaces Level 1 rows; Grounding Level 1 rows and empty results; Glossary Level 1 the words. Each absent = derive from spec, tag Inferred, one gap.
-Scope: Four elements. Requirement: `FR-NN`, one shall sentence in one EARS pattern, singular, system as subject; points to a diagram element, never repeats its steps. Source: upward trace, the `PU-NN` served, else the spec words quoted. Detail: downward trace, the one element holding the how: `ACT [Action]`, `PS n Screen`, `AU-NN`, `I-NN`, `GR-NN`, named as its sibling prints it. Priority: MoSCoW, must, should, could.
-Cut: Preconditions, rationale, implementing elements, test link, release, rejected asks: Level 2. Numeric targets: NFR. Given, When, Then: Acceptance.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Functional Requirements`, Cross-Section Rules 5 to 7.
-Output: Element list, divider, register, divider, gaps.
-Args: `concise`: per contract Levels, Concise: register, gap-count line.
+- Goal: Render spec as Functional Requirements Level 1 (EARS, Mavin et al. 2009: one sentence, one pattern, system as subject), ASCII, inline.
+- Target: Descriptive spec user points at; infer from full chat context. Purpose Level 1 output supplies `PU-NN`; Activity Level 1 actions and exceptions; Product Surface Level 1 screens; Autonomy Level 1 actions; Interfaces Level 1 rows; Grounding Level 1 rows and empty results; Glossary Level 1 the words. Each absent = derive from spec, tag Inferred, one gap.
+- Scope: Four elements.
+  - Requirement: `FR-NN`, one shall sentence in one EARS pattern, singular, system as subject; points to a diagram element, never repeats its steps.
+  - Source: upward trace, the `PU-NN` served, else the spec words quoted.
+  - Detail: downward trace, the one element holding the how: `ACT [Action]`, `PS n Screen`, `AU-NN`, `I-NN`, `GR-NN`, named as its sibling prints it.
+  - Priority: MoSCoW, must, should, could.
+- Cut: Preconditions, rationale, implementing elements, test link, release, rejected asks: Level 2. Numeric targets: NFR. Given, When, Then: Acceptance.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Functional Requirements`, Cross-Section Rules 5 to 7.
+- Output: Element list, divider, register, divider, gaps.
+- Args: `concise`: per contract Levels, Concise: register, gap-count line.
 
 ## Process
 1. Harvest: One candidate per Activity action, Autonomy action, Product Surface screen, Interfaces row, and spec sentence asking for behavior (need, please, will, shall); one capability in several siblings = one row. Unwanted: one If … then row per Grounding empty result and Activity exception, Detail pointing at that row, tagged Inferred; none anywhere = one gap.

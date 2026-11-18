@@ -3,13 +3,17 @@ name: purpose-level1
 description: "Trigger: /spec:purpose-level1 or purpose, problem, success measures request. Outcome: ASCII purpose card and measure rows, one row per outcome, from spec and C4, inline."
 ---
 # Purpose-Level1
-Goal: Render spec as Purpose Level 1 (Planguage, Gilb 2005: a measure is a Scale with a Past and a Goal level), ASCII, inline.
-Target: Descriptive spec user points at; infer from full chat context. C4 Level 1 output supplies the people and the system purpose line; absent = derive roles from spec, tag Inferred, one gap. Requirements Level 1, when present, supplies the `FR-NN` or `NF-NN` serving each measure (Rule 5).
-Scope: Four elements. Problem: who has what problem and today's workaround, in the spec's words; workaround absent = `Unknown`. Users: one row per benefiting role, matching C4 people; agents are not users. Success Measures: `PU-NN` per outcome the spec names or implies, Scale with unit, Past as baseline, Goal as target; silent = `Unknown`. Non-Goals: exclusions made on purpose, one line each; a real non-goal could have been a goal (Ubl 2020).
-Cut: Evidence, cost, job stories, formulas, sources, leading versus lagging, dates, reasons, bets, constraints: Level 2. Shall sentences: Requirements. Quality numbers: NFR. System purpose line: the C4 box, checked here, never restated.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Purpose`, Cross-Section Rule 5.
-Output: Element list, divider, card and measure rows, divider, gaps.
-Args: `concise`: per contract Levels, Concise: card, measure rows, gap-count line; Non-goal lines fold.
+- Goal: Render spec as Purpose Level 1 (Planguage, Gilb 2005: a measure is a Scale with a Past and a Goal level), ASCII, inline.
+- Target: Descriptive spec user points at; infer from full chat context. C4 Level 1 output supplies the people and the system purpose line; absent = derive roles from spec, tag Inferred, one gap. Requirements Level 1, when present, supplies the `FR-NN` or `NF-NN` serving each measure (Rule 5).
+- Scope: Four elements.
+  - Problem: who has what problem and today's workaround, in the spec's words; workaround absent = `Unknown`.
+  - Users: one row per benefiting role, matching C4 people; agents are not users.
+  - Success Measures: `PU-NN` per outcome the spec names or implies, Scale with unit, Past as baseline, Goal as target; silent = `Unknown`.
+  - Non-Goals: exclusions made on purpose, one line each; a real non-goal could have been a goal (Ubl 2020).
+- Cut: Evidence, cost, job stories, formulas, sources, leading versus lagging, dates, reasons, bets, constraints: Level 2. Shall sentences: Requirements. Quality numbers: NFR. System purpose line: the C4 box, checked here, never restated.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Purpose`, Cross-Section Rule 5.
+- Output: Element list, divider, card and measure rows, divider, gaps.
+- Args: `concise`: per contract Levels, Concise: card, measure rows, gap-count line; Non-goal lines fold.
 
 ## Process
 1. Extract: Problem, workaround, roles, exclusions from spec; tag each Verified or Inferred; a role in C4 or here but not both = one gap, never a folded cell.

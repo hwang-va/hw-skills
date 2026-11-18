@@ -3,13 +3,19 @@ name: risk-level2
 description: "Trigger: /spec:risk-level2 or root cause, blast radius, risk priority number, detection, fallback, residual risk request. Outcome: ASCII Level 2 detail lines under each Level 1 risk row, inline."
 ---
 # Risk-Level2
-Goal: Render spec as Risks and Failure Modes Level 2 (Failure Modes and Effects Analysis, IEC 60812:2018), Level 1 register plus detail lines, ASCII, inline.
-Target: Descriptive spec user points at; infer from full chat context. Risks Level 1 output is required, it fixes rows and guards; absent = run `risk-level1` first. Autonomy Level 1 supplies the reversing checkpoint and the tier drop; Evaluation, NFR, Data Access, Acceptance Level 2 the live signals; Product Surface Level 1 the fallback screen; absent = derive from spec, tag Inferred, one gap.
-Scope: Six refinements, IDs kept. Cause: one mechanism per row, plus OWASP LLM Top 10 category, `none` where no model is involved. Blast: what one firing touches, reversible by which checkpoint. RPN: severity × occurrence × detection, 1 to 3 each. Detect: signal by ID, who is paged. Fallback: recovery barrier the user sees, the `AU-NN` tier drop. Residual: what no barrier removes per high row, its acceptor by name.
-Cut: New rows, modes, guards, severities: a miss = Level 1 gap. Caps: NFR. Tests: Evaluation.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Risks and Failure Modes`, Cross-Section Rules 9, 11, 13.
-Output: Element list, divider, register with detail lines, divider, gaps.
-Args: `concise`: per contract Levels, Concise: register with detail lines, gap-count line.
+- Goal: Render spec as Risks and Failure Modes Level 2 (Failure Modes and Effects Analysis, IEC 60812:2018), Level 1 register plus detail lines, ASCII, inline.
+- Target: Descriptive spec user points at; infer from full chat context. Risks Level 1 output is required, it fixes rows and guards; absent = run `risk-level1` first. Autonomy Level 1 supplies the reversing checkpoint and the tier drop; Evaluation, NFR, Data Access, Acceptance Level 2 the live signals; Product Surface Level 1 the fallback screen; absent = derive from spec, tag Inferred, one gap.
+- Scope: Six refinements, IDs kept.
+  - Cause: one mechanism per row, plus OWASP LLM Top 10 category, `none` where no model is involved.
+  - Blast: what one firing touches, reversible by which checkpoint.
+  - RPN: severity × occurrence × detection, 1 to 3 each.
+  - Detect: signal by ID, who is paged.
+  - Fallback: recovery barrier the user sees, the `AU-NN` tier drop.
+  - Residual: what no barrier removes per high row, its acceptor by name.
+- Cut: New rows, modes, guards, severities: a miss = Level 1 gap. Caps: NFR. Tests: Evaluation.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Risks and Failure Modes`, Cross-Section Rules 9, 11, 13.
+- Output: Element list, divider, register with detail lines, divider, gaps.
+- Args: `concise`: per contract Levels, Concise: register with detail lines, gap-count line.
 
 ## Process
 1. Cause and Blast: One mechanism per row and its OWASP category; a rule or feed fault = `none`. Reversible while a T2 checkpoint or re-run stands before the person hurt; not once they acted or data left scope.

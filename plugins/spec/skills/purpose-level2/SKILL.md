@@ -3,13 +3,20 @@ name: purpose-level2
 description: "Trigger: /spec:purpose-level2 or metric formula, job stories, bets, or why a model request. Outcome: ASCII Level 2 lines under each Level 1 measure, plus story, bet, and constraint lines, inline."
 ---
 # Purpose-Level2
-Goal: Render spec as Purpose Level 2, detailed design (Planguage, Gilb 2005: a Meter and a dated Goal per measure), ASCII, inline.
-Target: Descriptive spec user points at; infer from full chat context. Purpose Level 1 output fixes the card, users, `PU-NN`, non-goals; absent = run `purpose-level1` first. C4 Level 2 supplies the container a Meter reads; Data Model Level 2 the attributes a formula uses; Autonomy Level 1 the AI actions the first bet must justify. Absent = derive from spec, tag Inferred, one gap.
-Scope: Six refinements, IDs kept. Evidence: tickets, transcripts, counts. Cost: the problem's cost today, with unit. Job Stories: one per Level 1 role, when, I want, so I can (Klement 2013). Measure Detail: per `PU-NN`, Meter as formula and data source, leading or lagging, target date. Reasons: one per non-goal. Bets: assumptions the build rests on, least evidence first (Assumptions Mapping, Bland and Osterwalder 2019); AI feature = first bet is why a model, what a form, rule, or template would miss. Constraints: budget, deadline, regulation.
-Cut: New measures, roles, or non-goals: a Level 1 gap. Shall sentences: Requirements. Failure modes: Risks.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Purpose`, Cross-Section Rule 5.
-Output: Element list, divider, register, divider, gaps.
-Args: `concise`: per contract Levels, Concise: register, gap-count line.
+- Goal: Render spec as Purpose Level 2, detailed design (Planguage, Gilb 2005: a Meter and a dated Goal per measure), ASCII, inline.
+- Target: Descriptive spec user points at; infer from full chat context. Purpose Level 1 output fixes the card, users, `PU-NN`, non-goals; absent = run `purpose-level1` first. C4 Level 2 supplies the container a Meter reads; Data Model Level 2 the attributes a formula uses; Autonomy Level 1 the AI actions the first bet must justify. Absent = derive from spec, tag Inferred, one gap.
+- Scope: Six refinements, IDs kept.
+  - Evidence: tickets, transcripts, counts.
+  - Cost: the problem's cost today, with unit.
+  - Job Stories: one per Level 1 role, when, I want, so I can (Klement 2013).
+  - Measure Detail: per `PU-NN`, Meter as formula and data source, leading or lagging, target date.
+  - Reasons: one per non-goal.
+  - Bets: assumptions the build rests on, least evidence first (Assumptions Mapping, Bland and Osterwalder 2019); AI feature = first bet is why a model, what a form, rule, or template would miss.
+  - Constraints: budget, deadline, regulation.
+- Cut: New measures, roles, or non-goals: a Level 1 gap. Shall sentences: Requirements. Failure modes: Risks.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Purpose`, Cross-Section Rule 5.
+- Output: Element list, divider, register, divider, gaps.
+- Args: `concise`: per contract Levels, Concise: register, gap-count line.
 
 ## Process
 1. Evidence and Cost: Counts, hours, money from spec; absent = `Unknown`, never an estimate: a guess reads as fact downstream.

@@ -3,13 +3,17 @@ name: nfr-level1
 description: "Trigger: /spec:nfr-level1 or non-functional requirements, quality targets, or SLO request. Outcome: ASCII quality register, one NF-NN row per quality, from spec, C4, and Autonomy, inline."
 ---
 # Nfr-Level1
-Goal: Render spec as Non-Functional Requirements Level 1 (Planguage, Gilb 2005: a quality exists only with a Scale, Meter, and Goal level), ASCII, inline.
-Target: Descriptive spec user points at; infer from full chat context. C4 Level 2 supplies the container per quality; Interfaces Level 1 the `I-NN` a measure reads at; Purpose Level 1 the `PU-NN` a row serves; Autonomy Level 1 the AI actions at T1 or above. Sibling absent = derive from spec, tag Inferred, one gap.
-Scope: Four elements. Quality: `NF-NN`, one Scale per row, an ISO 25010 word (performance, reliability, security, maintainability) or an AI word (cost per run, token budget, model latency, data residency, audit). Target: the Goal level, one number with unit and direction; a percentile carries its window. Measure: the Meter, the reading and the `I-NN` or C4 container it reads at. Owner: the Stakeholder, one role.
-Cut: Component scope, load, ceiling, measuring tool, breach action, trade-offs: Level 2. Outcomes: Purpose. Behavior: Functional Requirements.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Non-Functional Requirements`, Cross-Section Rules 5 and 6.
-Output: Element list, divider, register, divider, gaps.
-Args: `concise`: per contract Levels, Concise: register, gap-count line.
+- Goal: Render spec as Non-Functional Requirements Level 1 (Planguage, Gilb 2005: a quality exists only with a Scale, Meter, and Goal level), ASCII, inline.
+- Target: Descriptive spec user points at; infer from full chat context. C4 Level 2 supplies the container per quality; Interfaces Level 1 the `I-NN` a measure reads at; Purpose Level 1 the `PU-NN` a row serves; Autonomy Level 1 the AI actions at T1 or above. Sibling absent = derive from spec, tag Inferred, one gap.
+- Scope: Four elements.
+  - Quality: `NF-NN`, one Scale per row, an ISO 25010 word (performance, reliability, security, maintainability) or an AI word (cost per run, token budget, model latency, data residency, audit).
+  - Target: the Goal level, one number with unit and direction; a percentile carries its window.
+  - Measure: the Meter, the reading and the `I-NN` or C4 container it reads at.
+  - Owner: the Stakeholder, one role.
+- Cut: Component scope, load, ceiling, measuring tool, breach action, trade-offs: Level 2. Outcomes: Purpose. Behavior: Functional Requirements.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Non-Functional Requirements`, Cross-Section Rules 5 and 6.
+- Output: Element list, divider, register, divider, gaps.
+- Args: `concise`: per contract Levels, Concise: register, gap-count line.
 
 ## Process
 1. Qualities: One candidate per number or quality word in spec, per external feed (freshness), per user-facing `I-NN` (latency), per data store (security, residency), per AI action at T1 or above (cost, model latency, audit); merge same-Scale candidates.

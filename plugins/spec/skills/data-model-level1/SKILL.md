@@ -3,12 +3,16 @@ name: data-model-level1
 description: "Trigger: /spec:data-model-level1 or conceptual data model request. Outcome: ASCII conceptual data model from spec, inline."
 ---
 # Data-Model-Level1
-Goal: Render spec as Data Model Level 1, Conceptual (ANSI/SPARC three-schema architecture), ASCII, inline.
-Target: Descriptive spec user points at; infer from full chat context. C4 Level 1 output, if present, is additional input.
-Scope: Four element types only. Entities: things the system stores or references by identity (Chen ER), one box per singular noun, one-line definition; look-alikes disambiguated (event as occurrence vs event as record). Relationships: which entity connects to which, static association verb on the line (has, belongs to, applies to, records), one or many in words; a verb needing when or then is a process step, not a relationship. Rules: invariants on stored data, true at every moment, one sentence each; a rule with when, then, or who does it is Activity material. Source of Truth: where each entity is born, which system or team owns it.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## Data Model`; if absent, standard box-drawing glyphs.
-Output: Element list, divider, diagram, divider, gaps.
-Args: `concise`: per contract Levels, Concise: diagram, gap-count line.
+- Goal: Render spec as Data Model Level 1, Conceptual (ANSI/SPARC three-schema architecture), ASCII, inline.
+- Target: Descriptive spec user points at; infer from full chat context. C4 Level 1 output, if present, is additional input.
+- Scope: Four element types only.
+  - Entities: things the system stores or references by identity (Chen ER), one box per singular noun, one-line definition; look-alikes disambiguated (event as occurrence vs event as record).
+  - Relationships: which entity connects to which, static association verb on the line (has, belongs to, applies to, records), one or many in words; a verb needing when or then is a process step, not a relationship.
+  - Rules: invariants on stored data, true at every moment, one sentence each; a rule with when, then, or who does it is Activity material.
+  - Source of Truth: where each entity is born, which system or team owns it.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels plus `## Data Model`; if absent, standard box-drawing glyphs.
+- Output: Element list, divider, diagram, divider, gaps.
+- Args: `concise`: per contract Levels, Concise: diagram, gap-count line.
 
 ## Process
 1. Harvest: Candidates: every noun the spec gives its own ID, type block, or `X[]` list; every Glossary row; every stored thing an Acceptance Criterion reads or writes. One verdict each: box; fold, `attribute of <entity>`; reference box, owned by another system this model targets, selects, or sets values on; cut, naming the owning section. None dropped.

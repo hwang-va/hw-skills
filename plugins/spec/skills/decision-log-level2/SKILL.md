@@ -3,13 +3,18 @@ name: decision-log-level2
 description: "Trigger: /spec:decision-log-level2 or decision context, options, consequences, revisit trigger request. Outcome: ASCII Level 2 detail lines under each Level 1 decision row, from spec and Decision Log Level 1, inline."
 ---
 # Decision-Log-Level2
-Goal: Render each decision as Decision Log Level 2 (Architecture Decision Records, Nygard 2011), ASCII, inline.
-Target: Descriptive spec user points at; infer from full chat context. Decision Log Level 1 output supplies rows and `DEC-NN`, required; absent = run `decision-log-level1` first, one gap. Row sources supply context and consequence IDs; Evaluation Level 2 the bars a revisit reads; Autonomy Level 1 the tiers an answer moves.
-Scope: Five elements, IDs kept. Context: spec sentence or silence, then what the outputs drew, one clause. Options: two to four choices the outputs imply (MADR, default first), bars between. Changes: rows and boxes that move with the answer, by ID. Supersedes: the row replaced or replacing; none = one line naming merge candidates. Revisit: the tripwire (Heath and Heath 2013) that reopens a row, a number where an `EV-NN` or `NF-NN` holds one; none = `Unknown`.
-Cut: New rows or questions, answers the spec does not hold (a miss = Level 1 gap). `Unknown` items born after Level 1 ran: one counted gap, never new rows.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Decision Log`, Cross-Section Rule 14.
-Output: Element list, divider, register with detail lines, divider, gaps.
-Args: `concise`: per contract Levels, Concise: register with detail lines, gap-count line.
+- Goal: Render each decision as Decision Log Level 2 (Architecture Decision Records, Nygard 2011), ASCII, inline.
+- Target: Descriptive spec user points at; infer from full chat context. Decision Log Level 1 output supplies rows and `DEC-NN`, required; absent = run `decision-log-level1` first, one gap. Row sources supply context and consequence IDs; Evaluation Level 2 the bars a revisit reads; Autonomy Level 1 the tiers an answer moves.
+- Scope: Five elements, IDs kept.
+  - Context: spec sentence or silence, then what the outputs drew, one clause.
+  - Options: two to four choices the outputs imply (MADR, default first), bars between.
+  - Changes: rows and boxes that move with the answer, by ID.
+  - Supersedes: the row replaced or replacing; none = one line naming merge candidates.
+  - Revisit: the tripwire (Heath and Heath 2013) that reopens a row, a number where an `EV-NN` or `NF-NN` holds one; none = `Unknown`.
+- Cut: New rows or questions, answers the spec does not hold (a miss = Level 1 gap). `Unknown` items born after Level 1 ran: one counted gap, never new rows.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Decision Log`, Cross-Section Rule 14.
+- Output: Element list, divider, register with detail lines, divider, gaps.
+- Args: `concise`: per contract Levels, Concise: register with detail lines, gap-count line.
 
 ## Process
 1. Bind: Per row, context from its source items, spec first; options from the drawn default, the alternative a gap named, and do-nothing; no new design.

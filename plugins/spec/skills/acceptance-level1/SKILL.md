@@ -3,13 +3,17 @@ name: acceptance-level1
 description: "Trigger: /spec:acceptance-level1 or acceptance criteria, Given/When/Then request. Outcome: ASCII acceptance cards, one per deterministic requirement, from spec and Functional Requirements, inline."
 ---
 # Acceptance-Level1
-Goal: Render spec as Acceptance Criteria Level 1 (Behaviour-Driven Development, North 2006), ASCII, inline.
-Target: Descriptive spec user points at; infer from full chat context. Functional Requirements Level 1 output supplies the `FR-NN` rows, their `PU-NN` and Detail element; absent = derive from spec, tag Inferred, one gap. Autonomy Level 1 marks the rows a model performs; Data Model Level 1 the entities and states a Then may name; Product Surface Level 1 the screens; Evaluation Level 1 the `EV-NN` an AI row lands in.
-Scope: Four elements. Behaviors: `AC-NN` per deterministic `FR-NN`; deterministic = a specified test oracle, same input, same result; a model's output = Evaluation, no card. Scenario: one Given, one When, one Then, happy path, spec words. Pass Signal: one observable a tester points at: an entity in a state, a screen value, a message received. Trace: `FR-NN · PU-NN` in the header.
-Cut: Edge cases, negatives, example values, thresholds, test type and path, bindings, load tests: Level 2. AI output: Evaluation.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Acceptance Criteria`, Cross-Section Rules 6 to 7.
-Output: Element list, divider, cards, divider, gaps.
-Args: `concise`: per contract Levels, Concise: cards, gap-count line.
+- Goal: Render spec as Acceptance Criteria Level 1 (Behaviour-Driven Development, North 2006), ASCII, inline.
+- Target: Descriptive spec user points at; infer from full chat context. Functional Requirements Level 1 output supplies the `FR-NN` rows, their `PU-NN` and Detail element; absent = derive from spec, tag Inferred, one gap. Autonomy Level 1 marks the rows a model performs; Data Model Level 1 the entities and states a Then may name; Product Surface Level 1 the screens; Evaluation Level 1 the `EV-NN` an AI row lands in.
+- Scope: Four elements.
+  - Behaviors: `AC-NN` per deterministic `FR-NN`; deterministic = a specified test oracle, same input, same result; a model's output = Evaluation, no card.
+  - Scenario: one Given, one When, one Then, happy path, spec words.
+  - Pass Signal: one observable a tester points at: an entity in a state, a screen value, a message received.
+  - Trace: `FR-NN · PU-NN` in the header.
+- Cut: Edge cases, negatives, example values, thresholds, test type and path, bindings, load tests: Level 2. AI output: Evaluation.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Acceptance Criteria`, Cross-Section Rules 6 to 7.
+- Output: Element list, divider, cards, divider, gaps.
+- Args: `concise`: per contract Levels, Concise: cards, gap-count line.
 
 ## Process
 1. Partition: Each `FR-NN` is deterministic or AI output, never both; the Autonomy performer at T1 or above decides doubtful rows. A row a person or an agent may both perform keeps the person's half as the card and names the split in gaps.

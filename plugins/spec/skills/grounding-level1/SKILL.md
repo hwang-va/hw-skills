@@ -3,13 +3,17 @@ name: grounding-level1
 description: "Trigger: /spec:grounding-level1 or grounding, sources, citations request. Outcome: ASCII grounding register, one row per AI output, from spec and Data Model, inline."
 ---
 # Grounding-Level1
-Goal: Render spec as Grounding Level 1 (Attributable to Identified Sources, Rashkin et al. 2021: an element is fact only where "according to source P" holds), ASCII, inline.
-Target: Descriptive spec user points at; infer from full chat context. Autonomy Level 1 output supplies the AI outputs at T1 or above; absent = derive from spec, tag Inferred, one gap. Data Model Level 1 and 2 supply entities and attributes; C4 Level 2 the container of record; Data Access Level 1 the agent's rights; Glossary Level 1 the words.
-Scope: Four elements. Sources: `GR-NN` per AI output a person or system acts on; source P is `Entity.attr │ container of record`. Scope: least privilege; closed list of entities, documents, tools, folders, ending `nothing else`. Evidence: reference plus as-of attribute each element carries back. Empty Result: abstention as a designed output; spec silent = contract default, say so and stop, tagged Inferred; user text from spec, else one `Unknown` gap for all rows.
-Cut: Freshness, retrieval method, entitlement at retrieval, input as data, citation schema, pointer or passage, partial result, refusal text per case, memory: Level 2. Who may read: Data Access. How good: Evaluation.
-Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Grounding`, Cross-Section Rules 10 to 12.
-Output: Element list, divider, register, divider, gaps.
-Args: `concise`: per contract Levels, Concise: register, gap-count line.
+- Goal: Render spec as Grounding Level 1 (Attributable to Identified Sources, Rashkin et al. 2021: an element is fact only where "according to source P" holds), ASCII, inline.
+- Target: Descriptive spec user points at; infer from full chat context. Autonomy Level 1 output supplies the AI outputs at T1 or above; absent = derive from spec, tag Inferred, one gap. Data Model Level 1 and 2 supply entities and attributes; C4 Level 2 the container of record; Data Access Level 1 the agent's rights; Glossary Level 1 the words.
+- Scope: Four elements.
+  - Sources: `GR-NN` per AI output a person or system acts on; source P is `Entity.attr │ container of record`.
+  - Scope: least privilege; closed list of entities, documents, tools, folders, ending `nothing else`.
+  - Evidence: reference plus as-of attribute each element carries back.
+  - Empty Result: abstention as a designed output; spec silent = contract default, say so and stop, tagged Inferred; user text from spec, else one `Unknown` gap for all rows.
+- Cut: Freshness, retrieval method, entitlement at retrieval, input as data, citation schema, pointer or passage, partial result, refusal text per case, memory: Level 2. Who may read: Data Access. How good: Evaluation.
+- Reference: `${CLAUDE_PLUGIN_ROOT}/references/spec-sections.md`: Levels, `## Grounding`, Cross-Section Rules 10 to 12.
+- Output: Element list, divider, register, divider, gaps.
+- Args: `concise`: per contract Levels, Concise: register, gap-count line.
 
 ## Process
 1. Outputs: One row per Autonomy action whose result someone acts on, labelled by the Data Model entity it produces (Rule 15); store, index, rule-compare, and send actions go on one coverage line with the reason.
