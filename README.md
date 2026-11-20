@@ -9,6 +9,7 @@ General, reusable skills for working with AI agents. No company or domain conten
 /plugin install workstyle@hw-skills
 /plugin install spec@hw-skills
 /plugin install domain@hw-skills
+/plugin install model@hw-skills
 ```
 
 ## Plugins
@@ -33,6 +34,10 @@ Turn a rough AI product brief into a spec, one skill per section and level (`/sp
 Turn a domain's scattered sources into one folder of sorted facts, the as-is a product spec then changes: harvest one source kind at a time (`/domain:harvest-doc-level0`, `/domain:harvest-record-level0`, `/domain:harvest-chat-level0`, `/domain:interview-level0`), sort into six bins (`/domain:sort-level1`), map roles (`/domain:roles-level1`), check the folder (`/domain:check-level1`), and close the loop from outcomes (`/domain:review-level1`). Bin contract: `plugins/domain/references/domain-bins.md`.
 
 `plugins/domain/` is a copy, regenerated from a separate source repo on every change. Edits made here are overwritten: open an issue instead.
+
+### model
+
+- **eea** (`/model:eea`): Describe a real-world domain with the EEA model (entities as things, records and state; events; actions; checks and triggers) and its runtime counterpart (store, query, message, clock, route, guard, worker, door). Break a plain-language process description into those pieces, list the open questions, then map down to spec sections and a repo sketch.
 
 Each skill is a plain `SKILL.md` file: copy its folder into `~/.claude/skills/` to use it without the plugin.
 

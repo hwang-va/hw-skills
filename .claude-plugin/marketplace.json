@@ -18,6 +18,11 @@
       "name": "domain",
       "source": "./plugins/domain",
       "description": "Turn a domain's scattered sources into one folder of sorted facts: charter, roles, entities, data, rules, knowledge, process, tools, unknowns, reviews."
+    },
+    {
+      "name": "model",
+      "source": "./plugins/model",
+      "description": "Describe a real-world domain so it can become a spec, a repo and an AI-native system: the EEA model (entities, events, actions) and its runtime counterpart."
     }
   ]
 }

@@ -1,0 +1,6 @@
+{
+  "name": "model",
+  "version": "0.1.0",
+  "description": "Describe a real-world domain so it can become a spec, a repo and an AI-native system: the EEA model (entities, events, actions) and its runtime counterpart.",
+  "author": { "name": "hw" }
+}
